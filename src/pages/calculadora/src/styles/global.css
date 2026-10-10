@@ -1,0 +1,25 @@
+* {
+    border: 0;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+   --color-secondary: #0f0;
+   --color-white: #ffffff;
+   --color-bg-white: #f4f4f4;
+   --color-bg-gray: #222;
+   --color-bg-grayII: #444;
+   --color-bg-grayIII: #666;
+   --color-black: #000;
+
+   --font-size-display: 32px;
+   --font-size-button: 24px;
+
+   --font-family-primaty: Arial, sans-serif;
+}
+
+html {
+    font-family: var(--font-family-primary);
+}

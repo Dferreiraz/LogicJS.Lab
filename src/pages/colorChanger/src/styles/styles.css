@@ -1,0 +1,20 @@
+
+html{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    color: white;
+}
+
+.trocando-fundo{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.trocando-fundo span{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

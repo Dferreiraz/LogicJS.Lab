@@ -1,0 +1,43 @@
+@import url(global.css);
+
+body {
+    background: var(--color-bg-white);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 911px;
+}
+
+.calculadora {
+    background: var(--color-bg-gray);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px var(--color-black);
+}
+
+.display {
+    background: var(--color-black);
+    color: var(--color-secondary);
+    font-size: var(--font-size-display);
+    text-align: right;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    height: 50px;
+}
+
+.botoes button {
+    width: 60px;
+    height: 60px;
+    font-size: var(--font-size-button);
+    margin: 5px;
+    border: none;
+    border-radius: 5px;
+    background: var(--color-bg-grayII);
+    color: var(--color-white);
+    cursor: pointer;
+}
+
+.botoes button:hover {
+    background: var(--color-bg-grayIII);
+}
