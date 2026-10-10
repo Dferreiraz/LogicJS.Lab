@@ -14,7 +14,6 @@
   <img src="https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=css3&logoColor=white" alt="CSS3">
   <img src="https://img.shields.io/badge/JavaScript-ES6%2B-yellow?style=flat&logo=javascript&logoColor=black" alt="JavaScript ES6+">
   <img src="https://img.shields.io/badge/Status-Em%20desenvolvimento-orange" alt="Status">
-  <img src="https://img.shields.io/badge/License-MIT-green" alt="License">
 </p>
 
 <p align="center">
@@ -184,11 +183,3 @@ Desenvolvido por **Davi Ferreira** como parte da jornada de aprendizado em desen
     <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn">
   </a>
 </p>
-
----
-
-## 📄 Licença
-
-Este projeto está sob a licença MIT.
-
-Consulte o arquivo [LICENSE](./LICENSE) para obter mais informações, caso esteja presente no repositório.
