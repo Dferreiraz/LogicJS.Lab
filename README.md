@@ -17,13 +17,15 @@
 </p>
 
 <p align="center">
+  •
   <a href="#-sobre-o-projeto">Sobre</a> •
   <a href="#-projetos">Projetos</a> •
   <a href="#-como-executar-o-projeto">Como executar</a> •
   <br>
-  <a href="#-tecnologias">Tecnologias</a>
+  •
+  <a href="#-tecnologias">Tecnologias</a> •
   <a href="#-estrutura-do-projeto">Estrutura</a> •
-  <a href="#-autor">Autor</a>
+  <a href="#-autor">Autor</a> •
 </p>
 
 ---
