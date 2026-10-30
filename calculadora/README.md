@@ -42,9 +42,9 @@ O projeto apresenta uma interface visual de calculadora com botões numéricos e
 
 ## 🛠 Tecnologias
 
-- **HTML5** — Estrutura da interface.
-- **CSS3** — Estilização e apresentação visual.
-- **JavaScript** — Lógica de programação e interatividade.
+- **HTML5** — Estrutura e organização do conteúdo.
+- **Tailwind CSS** — Estilização e apresentação visual.
+- **JavaScript Vanilla (ES6+)** — Manipulação de arrays, objetos, índices, eventos e DOM.
 
 ---
 

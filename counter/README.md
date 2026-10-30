@@ -41,9 +41,9 @@ A aplicação consiste em um contador interativo que permite modificar um valor 
 
 ## 🛠 Tecnologias
 
-- **HTML5** — Estrutura da página.
-- **CSS3** — Estilização e apresentação visual.
-- **JavaScript (ES6+)** — Lógica do contador, eventos e manipulação do DOM.
+- **HTML5** — Estrutura e organização do conteúdo.
+- **Tailwind CSS** — Estilização e apresentação visual.
+- **JavaScript Vanilla (ES6+)** — Manipulação de arrays, objetos, índices, eventos e DOM.
 
 ---
 

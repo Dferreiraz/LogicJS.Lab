@@ -56,7 +56,7 @@ O projeto tem como foco o uso de arrays, objetos, índices e eventos para contro
 ## 🛠 Tecnologias
 
 - **HTML5** — Estrutura e organização do conteúdo.
-- **CSS3** — Estilização e apresentação visual.
+- **Tailwind CSS** — Estilização e apresentação visual.
 - **JavaScript Vanilla (ES6+)** — Manipulação de arrays, objetos, índices, eventos e DOM.
 
 ---

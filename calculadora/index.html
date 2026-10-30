@@ -4,34 +4,61 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculadora | LogicJS.Lab</title>
-    <link rel="stylesheet" href="./style.css">
+    <link rel="shortcut icon" href="./img/calculadora.svg" type="image/x-icon">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'bg-primary': '#0f172a',
+                        'bg-secondary': '#1e293b',
+                        'text-primary': '#f8fafc',
+                        'accent': '#38bdf8',
+                        'accent-hover': '#0ea5e9',
+                        'border-color': '#334155',
+                    }
+                }
+            }
+        }
+    </script>
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
 </head>
-<body>
-    <div class="calculadora">
-        <div class="display" id="display">0</div>
-        <div class="botoes">
-            <button onclick="limparDisplay()" class="btn-operador">C</button>
-            <button onclick="deletarUltimo()" class="btn-operador"></button>
-            <button onclick="adicionarOperador('/')" class="btn-operador">÷</button>
-            <button onclick="adicionarOperador('*')" class="btn-operador">×</button>
+<body class="bg-bg-primary text-text-primary min-h-screen flex items-center justify-center p-6 relative">
+
+    <!-- Botão Voltar -->
+    <a href="../index.html" class="fixed top-6 left-6 inline-flex items-center gap-2 bg-bg-secondary border border-border-color px-4 py-2 rounded-lg font-semibold text-sm hover:bg-accent hover:text-bg-primary transition-colors z-50">
+        <i class="ph ph-arrow-left"></i> Voltar ao Menu
+    </a>
+
+    <div class="bg-bg-secondary border border-border-color p-6 rounded-2xl shadow-xl w-full max-w-xs">
+        <div id="display" class="bg-bg-primary text-right text-3xl p-4 rounded-lg mb-4 font-mono overflow-hidden truncate h-16 flex items-center justify-end">0</div>
+        
+        <div class="grid grid-cols-4 gap-3">
+            <button onclick="limparDisplay()" class="col-span-2 bg-red-500/20 text-red-400 hover:bg-red-500/30 p-3 rounded-lg font-bold transition">C</button>
+            <button onclick="deletarUltimo()" class="bg-border-color hover:bg-slate-600 p-3 rounded-lg font-bold transition"><i class="ph ph-backspace"></i></button>
+            <button onclick="adicionarOperador('/')" class="bg-accent/20 text-accent hover:bg-accent/30 p-3 rounded-lg font-bold transition">÷</button>
             
-            <button onclick="adicionarNumero('7')">7</button>
-            <button onclick="adicionarNumero('8')">8</button>
-            <button onclick="adicionarNumero('9')">9</button>
-            <button onclick="adicionarOperador('-')" class="btn-operador">−</button>
+            <button onclick="adicionarNumero('7')" class="bg-bg-primary hover:bg-slate-700 p-3 rounded-lg font-bold transition">7</button>
+            <button onclick="adicionarNumero('8')" class="bg-bg-primary hover:bg-slate-700 p-3 rounded-lg font-bold transition">8</button>
+            <button onclick="adicionarNumero('9')" class="bg-bg-primary hover:bg-slate-700 p-3 rounded-lg font-bold transition">9</button>
+            <button onclick="adicionarOperador('*')" class="bg-accent/20 text-accent hover:bg-accent/30 p-3 rounded-lg font-bold transition">×</button>
             
-            <button onclick="adicionarNumero('4')">4</button>
-            <button onclick="adicionarNumero('5')">5</button>
-            <button onclick="adicionarNumero('6')">6</button>
-            <button onclick="adicionarOperador('+')" class="btn-operador">+</button>
+            <button onclick="adicionarNumero('4')" class="bg-bg-primary hover:bg-slate-700 p-3 rounded-lg font-bold transition">4</button>
+            <button onclick="adicionarNumero('5')" class="bg-bg-primary hover:bg-slate-700 p-3 rounded-lg font-bold transition">5</button>
+            <button onclick="adicionarNumero('6')" class="bg-bg-primary hover:bg-slate-700 p-3 rounded-lg font-bold transition">6</button>
+            <button onclick="adicionarOperador('-')" class="bg-accent/20 text-accent hover:bg-accent/30 p-3 rounded-lg font-bold transition">−</button>
             
-            <button onclick="adicionarNumero('1')">1</button>
-            <button onclick="adicionarNumero('2')">2</button>
-            <button onclick="adicionarNumero('3')">3</button>
-            <button onclick="calcular()" class="btn-igual">=</button>
+            <button onclick="adicionarNumero('1')" class="bg-bg-primary hover:bg-slate-700 p-3 rounded-lg font-bold transition">1</button>
+            <button onclick="adicionarNumero('2')" class="bg-bg-primary hover:bg-slate-700 p-3 rounded-lg font-bold transition">2</button>
+            <button onclick="adicionarNumero('3')" class="bg-bg-primary hover:bg-slate-700 p-3 rounded-lg font-bold transition">3</button>
+            <button onclick="adicionarOperador('+')" class="bg-accent/20 text-accent hover:bg-accent/30 p-3 rounded-lg font-bold transition">+</button>
             
-            <button onclick="adicionarNumero('0')" class="btn-zero">0</button>
-            <button onclick="adicionarNumero('.')">.</button>
+            <button onclick="adicionarNumero('0')" class="col-span-2 bg-bg-primary hover:bg-slate-700 p-3 rounded-lg font-bold transition">0</button>
+            <button onclick="adicionarNumero('.')" class="bg-bg-primary hover:bg-slate-700 p-3 rounded-lg font-bold transition">.</button>
+            <button onclick="calcular()" class="bg-accent text-bg-primary hover:bg-accent-hover p-3 rounded-lg font-bold transition">=</button>
         </div>
     </div>
 

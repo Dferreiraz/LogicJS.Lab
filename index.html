@@ -4,82 +4,158 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LogicJS.Lab | Davi Ferreira</title>
+    <link rel="shortcut icon" href="./public/JavaScript.svg" type="image/x-icon">
     
-    <link rel="stylesheet" href="./css/style.css">
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Ícones (Phosphor Icons - leve e moderno) -->
+    <!-- Configuração do Tema -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'bg-primary': '#0f172a',
+                        'bg-secondary': '#1e293b',
+                        'bg-card': '#1e293b',
+                        'text-primary': '#f8fafc',
+                        'text-secondary': '#94a3b8',
+                        'accent': '#38bdf8',
+                        'accent-hover': '#0ea5e9',
+                        'border-color': '#334155',
+                    },
+                    fontFamily: {
+                        'main': ['Segoe UI', 'system-ui', '-apple-system', 'sans-serif'],
+                    }
+                },
+            },
+        }
+    </script>
+
+    <!-- Ícones (Phosphor Icons) -->
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
 </head>
-<body>
+<body class="bg-bg-primary text-text-primary font-main min-h-screen flex flex-col">
 
-    <header class="header">
-        <div class="container">
-            <div class="logo">
-                <i class="ph ph-brain"></i>
-                <h1>LogicJS<span class="highlight">.Lab</span></h1>
+    <!-- Header -->
+    <header class="text-center py-16 pb-12 border-b border-border-color">
+        <div class="container mx-auto px-6">
+            <div class="flex items-center justify-center gap-3 mb-4">
+                <i class="ph ph-brain text-4xl text-accent"></i>
+                <h1 class="text-4xl font-bold tracking-tight">
+                    Logic<span class="text-accent">JS</span>.Lab
+                </h1>
             </div>
-            <p class="subtitle">
+            
+            <p class="text-text-secondary text-lg max-w-2xl mx-auto mb-8">
                 Laboratório de fundamentos. Onde a lógica de programação e o JavaScript Vanilla ganham vida.
             </p>
-            <div class="tech-stack">
-                <span class="tech-badge"><i class="ph ph-file-html"></i> HTML5</span>
-                <span class="tech-badge"><i class="ph ph-paint-brush"></i> CSS3</span>
-                <span class="tech-badge"><i class="ph ph-file-js"></i> JavaScript (ES6+)</span>
+            
+            <div class="flex justify-center gap-4 flex-wrap">
+                <span class="bg-bg-secondary border border-border-color px-4 py-2 rounded-full text-sm font-semibold text-accent flex items-center gap-2">
+                    <i class="ph ph-html-logo"></i> HTML5
+                </span>
+                <span class="bg-bg-secondary border border-border-color px-4 py-2 rounded-full text-sm font-semibold text-accent flex items-center gap-2">
+                    <i class="ph ph-css-logo"></i> CSS3
+                </span>
+                <span class="bg-bg-secondary border border-border-color px-4 py-2 rounded-full text-sm font-semibold text-accent flex items-center gap-2">
+                    <i class="ph ph-javascript-logo"></i> JavaScript (ES6+)
+                </span>
             </div>
         </div>
     </header>
 
-    <main class="container">
-        <h2 class="section-title">Projetos do Laboratório</h2>
-        
-        <div class="projects-grid">
-            <!-- Projeto 1 -->
-            <article class="project-card">
-                <div class="card-icon"><i class="ph ph-calculator"></i></div>
-                <h3>Calculadora</h3>
-                <p>Estruturação semântica e lógica básica de operações e fluxo de dados.</p>
-                <a href="./calculadora/index.html" class="btn-primary">Acessar Projeto <i class="ph ph-arrow-right"></i></a>
-            </article>
+    <!-- Main Content -->
+    <main class="flex-1 py-12">
+        <div class="container mx-auto px-6">
+            <h2 class="text-2xl mb-8 pb-3 border-b-2 border-accent inline-block">
+                Projetos do Laboratório
+            </h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <!-- Calculadora -->
+                <article class="bg-bg-card border border-border-color rounded-xl p-6 transition-all duration-200 hover:-translate-y-1 hover:shadow-[0_10px_25px_-5px_rgba(56,189,248,0.15)] hover:border-accent flex flex-col">
+                    <i class="ph ph-calculator text-3xl text-accent mb-4"></i>
+                    <h3 class="text-xl mb-3">Calculadora</h3>
+                    <p class="text-text-secondary text-sm mb-6 flex-1">
+                        Estruturação semântica e lógica básica de operações e fluxo de dados.
+                    </p>
+                    <a href="./calculadora/index.html" 
+                       class="inline-flex items-center justify-center gap-2 bg-accent text-bg-primary font-semibold py-3 px-4 rounded-lg transition-colors duration-200 hover:bg-accent-hover">
+                        Acessar Projeto
+                        <i class="ph ph-arrow-right"></i>
+                    </a>
+                </article>
 
-            <!-- Projeto 2 -->
-            <article class="project-card">
-                <div class="card-icon"><i class="ph ph-palette"></i></div>
-                <h3>Color Changer</h3>
-                <p>Manipulação do DOM e alteração dinâmica de estilos via eventos.</p>
-                <a href="./color-changer/index.html" class="btn-primary">Acessar Projeto <i class="ph ph-arrow-right"></i></a>
-            </article>
+                <!-- Color Changer -->
+                <article class="bg-bg-card border border-border-color rounded-xl p-6 transition-all duration-200 hover:-translate-y-1 hover:shadow-[0_10px_25px_-5px_rgba(56,189,248,0.15)] hover:border-accent flex flex-col">
+                    <i class="ph ph-palette text-3xl text-accent mb-4"></i>
+                    <h3 class="text-xl mb-3">Color Changer</h3>
+                    <p class="text-text-secondary text-sm mb-6 flex-1">
+                        Manipulação do DOM e alteração dinâmica de estilos via eventos.
+                    </p>
+                    <a href="./color-changer/index.html" 
+                       class="inline-flex items-center justify-center gap-2 bg-accent text-bg-primary font-semibold py-3 px-4 rounded-lg transition-colors duration-200 hover:bg-accent-hover">
+                        Acessar Projeto
+                        <i class="ph ph-arrow-right"></i>
+                    </a>
+                </article>
 
-            <!-- Projeto 3 -->
-            <article class="project-card">
-                <div class="card-icon"><i class="ph ph-counter"></i></div>
-                <h3>Counter</h3>
-                <p>Gerenciamento de estado simples e atualização dinâmica da interface.</p>
-                <a href="./counter/index.html" class="btn-primary">Acessar Projeto <i class="ph ph-arrow-right"></i></a>
-            </article>
+                <!-- Counter -->
+                <article class="bg-bg-card border border-border-color rounded-xl p-6 transition-all duration-200 hover:-translate-y-1 hover:shadow-[0_10px_25px_-5px_rgba(56,189,248,0.15)] hover:border-accent flex flex-col">
+                    <i class="ph ph-plus-minus text-3xl text-accent mb-4"></i>
+                    <h3 class="text-xl mb-3">Counter</h3>
+                    <p class="text-text-secondary text-sm mb-6 flex-1">
+                        Gerenciamento de estado simples e atualização dinâmica da interface.
+                    </p>
+                    <a href="./counter/index.html" 
+                       class="inline-flex items-center justify-center gap-2 bg-accent text-bg-primary font-semibold py-3 px-4 rounded-lg transition-colors duration-200 hover:bg-accent-hover">
+                        Acessar Projeto
+                        <i class="ph ph-arrow-right"></i>
+                    </a>
+                </article>
 
-            <!-- Projeto 4 -->
-            <article class="project-card">
-                <div class="card-icon"><i class="ph ph-crosshair"></i></div>
-                <h3>Jogo do Clique</h3>
-                <p>Eventos de mouse, posicionamento absoluto e lógica de tempo de reação.</p>
-                <a href="./jogo-do-clique/index.html" class="btn-primary">Acessar Projeto <i class="ph ph-arrow-right"></i></a>
-            </article>
+                <!-- Jogo do Clique -->
+                <article class="bg-bg-card border border-border-color rounded-xl p-6 transition-all duration-200 hover:-translate-y-1 hover:shadow-[0_10px_25px_-5px_rgba(56,189,248,0.15)] hover:border-accent flex flex-col">
+                    <i class="ph ph-cursor-click text-3xl text-accent mb-4"></i>
+                    <h3 class="text-xl mb-3">Jogo do Clique</h3>
+                    <p class="text-text-secondary text-sm mb-6 flex-1">
+                        Eventos de mouse, posicionamento absoluto e lógica de tempo de reação.
+                    </p>
+                    <a href="./jogo-do-clique/index.html" 
+                       class="inline-flex items-center justify-center gap-2 bg-accent text-bg-primary font-semibold py-3 px-4 rounded-lg transition-colors duration-200 hover:bg-accent-hover">
+                        Acessar Projeto
+                        <i class="ph ph-arrow-right"></i>
+                    </a>
+                </article>
 
-            <!-- Projeto 5 -->
-            <article class="project-card">
-                <div class="card-icon"><i class="ph ph-star"></i></div>
-                <h3>Reviews</h3>
-                <p>Manipulação de arrays de objetos, índices e lógica de aleatoriedade.</p>
-                <a href="./reviews/index.html" class="btn-primary">Acessar Projeto <i class="ph ph-arrow-right"></i></a>
-            </article>
+                <!-- Reviews -->
+                <article class="bg-bg-card border border-border-color rounded-xl p-6 transition-all duration-200 hover:-translate-y-1 hover:shadow-[0_10px_25px_-5px_rgba(56,189,248,0.15)] hover:border-accent flex flex-col">
+                    <i class="ph ph-star text-3xl text-accent mb-4"></i>
+                    <h3 class="text-xl mb-3">Reviews</h3>
+                    <p class="text-text-secondary text-sm mb-6 flex-1">
+                        Manipulação de arrays de objetos, índices e lógica de aleatoriedade.
+                    </p>
+                    <a href="./reviews/index.html" 
+                       class="inline-flex items-center justify-center gap-2 bg-accent text-bg-primary font-semibold py-3 px-4 rounded-lg transition-colors duration-200 hover:bg-accent-hover">
+                        Acessar Projeto
+                        <i class="ph ph-arrow-right"></i>
+                    </a>
+                </article>
+
+            </div>
         </div>
     </main>
 
-    <footer class="footer">
-        <div class="container">
-            <p>Desenvolvido por <strong>Davi Ferreira</strong></p>
-            <a href="https://github.com/Dferreiraz" target="_blank" class="github-link">
-                <i class="ph ph-github-logo"></i> Ver perfil no GitHub
+    <!-- Footer -->
+    <footer class="text-center py-8 border-t border-border-color text-text-secondary text-sm">
+        <div class="container mx-auto px-6">
+            <p>Desenvolvido por Davi Ferreira</p>
+            <a href="https://github.com/Dferreiraz" 
+               class="inline-flex items-center gap-2 text-text-primary no-underline mt-2 font-semibold transition-colors duration-200 hover:text-accent">
+                <i class="ph ph-github-logo"></i>
+                Ver perfil no GitHub
             </a>
         </div>
     </footer>

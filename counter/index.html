@@ -4,18 +4,53 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Counter | LogicJS.Lab</title>
-    <link rel="stylesheet" href="./style.css">
+
+    <link rel="shortcut icon" href="./img/counter.svg" type="image/x-icon">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'bg-primary': '#0f172a',
+                        'bg-secondary': '#1e293b',
+                        'text-primary': '#f8fafc',
+                        'accent': '#38bdf8',
+                        'accent-hover': '#0ea5e9',
+                        'border-color': '#334155',
+                    }
+                }
+            }
+        }
+    </script>
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
 </head>
-<body>
-    <div class="counter-card">
-        <h1>The Counter</h1>
-        <div id="value">0</div>
-        <div class="buttons">
-            <button id="btn-increase">Increase</button>
-            <button id="btn-reset">Reset</button>
-            <button id="btn-decrease">Decrease</button>
+<body class="bg-bg-primary text-text-primary min-h-screen flex items-center justify-center p-6 relative">
+
+    <!-- Botão Voltar -->
+    <a href="../index.html" class="fixed top-6 left-6 inline-flex items-center gap-2 bg-bg-secondary border border-border-color px-4 py-2 rounded-lg font-semibold text-sm hover:bg-accent hover:text-bg-primary transition-colors z-50">
+        <i class="ph ph-arrow-left"></i> Voltar ao Menu
+    </a>
+
+    <div class="bg-bg-secondary border border-border-color p-8 rounded-2xl shadow-xl text-center w-full max-w-sm">
+        <h1 class="text-2xl font-bold mb-6 uppercase tracking-widest text-text-secondary">The Counter</h1>
+        
+        <div id="value" class="text-6xl font-black mb-8 text-accent">0</div>
+        
+        <div class="flex gap-4 justify-center">
+            <button id="btn-decrease" class="bg-red-500/20 text-red-400 hover:bg-red-500 hover:text-white px-6 py-2 rounded-lg font-bold transition border border-red-500/30">
+                <i class="ph ph-minus"></i>
+            </button>
+            <button id="btn-reset" class="bg-border-color hover:bg-slate-500 px-6 py-2 rounded-lg font-bold transition text-text-secondary hover:text-white">
+                Reset
+            </button>
+            <button id="btn-increase" class="bg-green-500/20 text-green-400 hover:bg-green-500 hover:text-white px-6 py-2 rounded-lg font-bold transition border border-green-500/30">
+                <i class="ph ph-plus"></i>
+            </button>
         </div>
     </div>
+
     <script src="./script.js"></script>
 </body>
 </html>

@@ -1,5 +1,3 @@
-# LogicJS.Lab
-
 <h1 align="center">
   🧪 LogicJS.Lab
 </h1>
@@ -98,9 +96,9 @@ As seguintes tecnologias são utilizadas no desenvolvimento dos projetos.
 
 ### Front-End
 
-- **HTML5** — Estrutura e semântica das páginas.
-- **CSS3** — Estilização, layouts e apresentação visual.
-- **JavaScript ES6+** — Lógica de programação e interatividade.
+- **HTML5** — Estrutura e organização do conteúdo.
+- **Tailwind CSS** — Estilização e apresentação visual.
+- **JavaScript Vanilla (ES6+)** — Manipulação de arrays, objetos, índices, eventos e DOM.
 
 ### Ferramentas
 
@@ -168,7 +166,7 @@ LogicJS.Lab/
 └── README.md
 ```
 
-> A estrutura acima representa a organização prevista para o laboratório. Arquivos CSS, JavaScript e outros recursos podem estar presentes em cada pasta, conforme a implementação de cada projeto.
+> A estrutura acima representa a organização prevista para o laboratório. Arquivos JavaScript e outros recursos podem estar presentes em cada pasta, conforme a implementação de cada projeto.
 
 
 ---

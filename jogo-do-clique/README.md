@@ -56,9 +56,9 @@ Além de proporcionar uma experiência interativa, o projeto permite explorar ev
 
 ## 🛠 Tecnologias
 
-- **HTML5** — Estrutura da página.
-- **CSS3** — Estilização, layout e posicionamento dos elementos.
-- **JavaScript Vanilla (ES6+)** — Lógica do jogo, eventos, temporizadores e cálculo do tempo de reação.
+- **HTML5** — Estrutura e organização do conteúdo.
+- **Tailwind CSS** — Estilização e apresentação visual.
+- **JavaScript Vanilla (ES6+)** — Manipulação de arrays, objetos, índices, eventos e DOM.
 
 ---
 

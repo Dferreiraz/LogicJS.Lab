@@ -40,9 +40,9 @@ A aplicação permite alterar dinamicamente as cores da interface por meio de in
 
 ## 🛠 Tecnologias
 
-- **HTML5** — Estrutura da página.
-- **CSS3** — Estilização e apresentação visual.
-- **JavaScript (ES6+)** — Manipulação do DOM, eventos e alteração dinâmica de estilos.
+- **HTML5** — Estrutura e organização do conteúdo.
+- **Tailwind CSS** — Estilização e apresentação visual.
+- **JavaScript Vanilla (ES6+)** — Manipulação de arrays, objetos, índices, eventos e DOM.
 
 ---
 

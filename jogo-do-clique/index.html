@@ -4,23 +4,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jogo do Clique | LogicJS.Lab</title>
-    <link rel="stylesheet" href="./style.css">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'bg-primary': '#0f172a',
+                        'bg-secondary': '#1e293b',
+                        'text-primary': '#f8fafc',
+                        'text-secondary': '#94a3b8',
+                        'accent': '#38bdf8',
+                        'border-color': '#334155',
+                    }
+                }
+            }
+        }
+    </script>
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
 </head>
-<body>
-    <div class="game-container">
-        <h1>Jogo do Clique</h1>
-        <p>Clique no quadrado verde o mais rápido possível</p>
-        
-        <div id="game-area">
-            <div id="square"></div>
-        </div>
-        
-        <div class="result">
-            <span>Tempo de reação: </span>
-            <span id="reaction-time">0</span>
-            <span> ms</span>
-        </div>
+<body class="bg-bg-primary text-text-primary min-h-screen flex flex-col items-center justify-center p-6 relative">
+
+    <!-- Botão Voltar -->
+    <a href="../index.html" class="fixed top-6 left-6 inline-flex items-center gap-2 bg-bg-secondary border border-border-color px-4 py-2 rounded-lg font-semibold text-sm hover:bg-accent hover:text-bg-primary transition-colors z-50">
+        <i class="ph ph-arrow-left"></i> Voltar ao Menu
+    </a>
+
+    <div class="text-center mb-8">
+        <h1 class="text-3xl font-bold mb-2">Jogo do Clique</h1>
+        <p class="text-text-secondary">Clique no quadrado verde o mais rápido possível</p>
     </div>
+    
+    <!-- Área do Jogo: Importante ter 'relative' para o quadrado absoluto funcionar -->
+    <div id="game-area" class="w-full max-w-2xl h-80 bg-bg-secondary border-2 border-dashed border-border-color rounded-xl relative overflow-hidden cursor-crosshair mb-6 shadow-inner">
+        <!-- O quadrado será inserido aqui via JS -->
+        <div id="square" class="hidden w-12 h-12 bg-green-500 rounded-lg shadow-lg cursor-pointer absolute transition-transform active:scale-90"></div>
+    </div>
+    
+    <div class="bg-bg-secondary px-6 py-3 rounded-full border border-border-color flex items-center gap-2 shadow-lg">
+        <span class="text-text-secondary">Tempo de reação:</span>
+        <span id="reaction-time" class="text-2xl font-bold text-accent font-mono">0</span>
+        <span class="text-text-secondary text-sm">ms</span>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>
