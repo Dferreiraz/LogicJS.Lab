@@ -33,10 +33,19 @@ O projeto apresenta uma interface visual de calculadora com botões numéricos e
 ## ⚙️ Funcionalidades
 
 - [x] Interface visual de uma calculadora.
-- [x] Botões numéricos.
-- [x] Botões para operações matemáticas.
+- [x] Botões numéricos e operadores (`+`, `-`, `*`, `/`).
+- [x] Limpar display (`C`) e apagar o último caractere.
+- [x] Cálculo com precedência de operadores e números decimais.
+- [x] Exibição de `Erro` para expressões inválidas ou divisão por zero.
 
-*As funcionalidades acima descrevem os recursos informados para o projeto. A execução efetiva dos cálculos depende da implementação do JavaScript.*
+---
+
+## 🔐 Segurança e validação
+
+- A expressão é validada por uma allowlist estrita antes do cálculo: apenas dígitos, `+`, `-`, `*`, `/`, `.` e espaços.
+- O cálculo usa um **avaliador matemático próprio**, com precedência de operadores e sinal unário. Não há uso de `eval()` nem `Function()`.
+- Divisão por zero e sintaxe inválida (ex.: `5-`, `1..2`) resultam em `Erro` no display.
+- Os botões usam `type="button"` e são ligados via `addEventListener()`, sem handlers inline.
 
 ---
 
@@ -45,6 +54,14 @@ O projeto apresenta uma interface visual de calculadora com botões numéricos e
 - **HTML5** — Estrutura e organização do conteúdo.
 - **Tailwind CSS** — Estilização e apresentação visual.
 - **JavaScript Vanilla (ES6+)** — Manipulação de arrays, objetos, índices, eventos e DOM.
+
+---
+
+## 🧩 Camada compartilhada
+
+O tema visual vem de [`../shared/tailwind-config.js`](../shared/tailwind-config.js), carregado depois do CDN do Tailwind. Assim, as cores e a tipografia ficam em um único arquivo para todo o laboratório.
+
+Os eventos são registrados com `addEventListener()` no `scripts.js` (sem `onclick` inline), usando os atributos `data-number` e `data-operator` para identificar cada botão. Este módulo não usa console virtual, portanto não depende do `LogJS`; a UI é atualizada diretamente no display.
 
 ---
 
@@ -74,9 +91,8 @@ Abra o arquivo `index.html` no navegador ou utilize a extensão **Live Server** 
 calculadora/
 │
 ├── index.html
-└── script.js
-└── style.css
-   
+├── scripts.js
+└── README.md
 ```
 
 ---

@@ -3,32 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Content Security Policy: restringe origens de scripts, estilos e fontes -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.tailwindcss.com; style-src 'self' 'unsafe-inline' https://unpkg.com; font-src 'self' data: https://unpkg.com; img-src 'self' data: https://placehold.co; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
     <title>Estrutura de Dados | LogicJS.Lab</title>
-    <link rel="shortcut icon" href="./assets/img/favicon.svg" type="image/x-icon">
+    <link rel="shortcut icon" href="../shared/assets/estrutura-dados.svg" type="image/x-icon">
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'bg-primary': '#0f172a',
-                        'bg-secondary': '#1e293b',
-                        'text-primary': '#f8fafc',
-                        'text-secondary': '#94a3b8',
-                        'accent': '#F7DF1E',          // Amarelo JavaScript
-                        'accent-hover': '#E5CC16',    // Amarelo um pouco mais escuro para hover
-                        'border-color': '#334155',
-                        'code-bg': '#111827',
-                        'key': '#c678dd',
-                        'value': '#98c379',
-                    }
-                }
-            }
-        }
-    </script>
-    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <script src="../shared/tailwind-config.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.2/src/regular/style.css">
 </head>
 <body class="bg-bg-primary text-text-primary min-h-screen flex items-center justify-center p-6 relative font-mono">
 
@@ -59,7 +43,7 @@
                     <input type="email" id="input-email" placeholder="Ex: davi@logicjs.lab" class="w-full bg-bg-primary border border-border-color rounded p-2 text-white focus:border-accent outline-none">
                 </div>
                 
-                <button onclick="addRegistro()" class="w-full bg-accent text-bg-primary font-bold py-3 rounded-lg hover:bg-accent-hover transition flex items-center justify-center gap-2 mt-2">
+                <button type="button" id="btn-add-registro" class="w-full bg-accent text-bg-primary font-bold py-3 rounded-lg hover:bg-accent-hover transition flex items-center justify-center gap-2 mt-2">
                     <i class="ph ph-floppy-disk"></i> Salvar no Array
                 </button>
             </div>
@@ -90,6 +74,7 @@
         </div>
     </div>
 
+    <script src="../shared/logger.js"></script>
     <script src="./script.js"></script>
 </body>
 </html>

@@ -61,6 +61,14 @@ O projeto tem como foco o uso de arrays, objetos, índices e eventos para contro
 
 ---
 
+## 🧩 Camada compartilhada
+
+O tema visual vem de [`../shared/tailwind-config.js`](../shared/tailwind-config.js), carregado depois do CDN do Tailwind. Cores e tipografia ficam centralizadas para todo o laboratório.
+
+Os botões de navegação são ligados com `addEventListener()` no `script.js`, sem `onclick` inline. Este módulo não usa console virtual, portanto não depende do `LogJS`; os dados da avaliação são renderizados diretamente no DOM com `textContent`.
+
+---
+
 ## 🚀 Como executar o projeto
 
 ### 1. Clone o repositório
@@ -88,7 +96,7 @@ reviews/
 │
 ├── index.html
 ├── script.js
-└── style.css
+└── README.md
 ```
 
 ---
@@ -104,8 +112,9 @@ reviews/
 **Manipulação do DOM**
 - Seleção de elementos HTML.
 - Atualização dinâmica de textos e informações.
-- Eventos de clique.
+- Eventos de clique com `addEventListener()`.
 - Renderização de conteúdo com JavaScript.
+- Uso de `textContent` para inserir dados sem interpretar HTML.
 
 **Desenvolvimento Front-End**
 - Estruturação com HTML5.

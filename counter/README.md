@@ -47,6 +47,14 @@ A aplicação consiste em um contador interativo que permite modificar um valor 
 
 ---
 
+## 🧩 Camada compartilhada
+
+O tema visual vem de [`../shared/tailwind-config.js`](../shared/tailwind-config.js), carregado depois do CDN do Tailwind. Cores e tipografia ficam centralizadas para todo o laboratório.
+
+Os botões são ligados com `addEventListener()` no `script.js`, sem `onclick` inline, e todos usam `type="button"`. Este módulo não usa console virtual, portanto não depende do `LogJS`; o valor do contador é atualizado diretamente no DOM.
+
+---
+
 ## 🚀 Como executar o projeto
 
 ### 1. Clone o repositório
@@ -74,7 +82,7 @@ counter/
 │
 ├── index.html
 ├── script.js
-└── style.css
+└── README.md
 ```
 
 ---
@@ -84,9 +92,10 @@ counter/
 - Declaração e atualização de variáveis.
 - Operadores aritméticos.
 - Manipulação do DOM.
-- Eventos de clique.
+- Eventos de clique com `addEventListener()`.
 - Atualização dinâmica de conteúdo.
 - Controle de estado simples.
+- Uso do tema centralizado em `shared/tailwind-config.js`.
 
 ---
 

@@ -1,59 +1,48 @@
-// Seleciona o elemento onde vamos mostrar os resultados
-const output = document.getElementById('console-output');
-
-// Função auxiliar para limpar e escrever no console virtual
-function logToScreen(message, type = 'log') {
-    const p = document.createElement('p');
-    p.textContent = `> ${message}`;
-    
-    // Adiciona cores diferentes para erros ou logs normais
-    if (type === 'error') {
-        p.classList.add('text-red-400');
-    } else {
-        p.classList.add('text-green-400');
-    }
-    
-    output.appendChild(p);
-    output.scrollTop = output.scrollHeight; // Mantém o scroll sempre no final
-}
+// Os logs usam a camada compartilhada shared/logger.js (LogJS.append).
+// Assim, a lógica de renderização fica em um único lugar para todo o laboratório.
 
 // 1. Testando VAR
 function testVar() {
-    logToScreen("--- Iniciando teste com VAR ---");
+    LogJS.append('console-output', "--- Iniciando teste com VAR ---");
     
     var idade = 50;
-    logToScreen(`Valor inicial: ${idade}`);
+    LogJS.append('console-output', `Valor inicial: ${idade}`);
     
     idade = 25;
-    logToScreen(`Novo valor atribuído: ${idade}`);
-    logToScreen("Resultado: VAR permite reatribuição facilmente.");
+    LogJS.append('console-output', `Novo valor atribuído: ${idade}`);
+    LogJS.append('console-output', "Resultado: VAR permite reatribuição facilmente.");
 }
 
 // 2. Testando LET
 function testLet() {
-    logToScreen("--- Iniciando teste com LET ---");
+    LogJS.append('console-output', "--- Iniciando teste com LET ---");
     
     let cidade = "Xique-Xique, Bahia";
-    logToScreen(`Cidade inicial: ${cidade}`);
+    LogJS.append('console-output', `Cidade inicial: ${cidade}`);
     
     cidade = "Tão tão distante";
-    logToScreen(`Nova cidade: ${cidade}`);
-    logToScreen("Resultado: LET também é mutável, mas tem escopo de bloco.");
+    LogJS.append('console-output', `Nova cidade: ${cidade}`);
+    LogJS.append('console-output', "Resultado: LET também é mutável, mas tem escopo de bloco.");
 }
 
 // 3. Testando CONST
 function testConst() {
-    logToScreen("--- Iniciando teste com CONST ---");
+    LogJS.append('console-output', "--- Iniciando teste com CONST ---");
     
     const cpf = 1324343653465375237;
-    logToScreen(`CPF armazenado: ${cpf}`);
+    LogJS.append('console-output', `CPF armazenado: ${cpf}`);
     
     // Tenta mudar o valor (vai gerar erro)
     try {
         // cpf = 2142134; // Isso daria erro real e pararia o script
         throw new Error("Assignment to constant variable.");
     } catch (e) {
-        logToScreen(`Erro ao tentar mudar: ${e.message}`, 'error');
-        logToScreen("Resultado: CONST é imutável após a declaração.");
+        LogJS.append('console-output', `Erro ao tentar mudar: ${e.message}`, { type: 'error' });
+        LogJS.append('console-output', "Resultado: CONST é imutável após a declaração.");
     }
 }
+
+// Liga os botões aos eventos (sem onclick inline, compatível com CSP)
+document.getElementById('btn-test-var').addEventListener('click', testVar);
+document.getElementById('btn-test-let').addEventListener('click', testLet);
+document.getElementById('btn-test-const').addEventListener('click', testConst);

@@ -17,10 +17,11 @@ function iniciarRodada() {
     setTimeout(aparecerQuadrado, delay);
 }
 
-square.onclick = function () {
+// addEventListener em vez de onclick: mantém o JS desacoplado do HTML e é compatível com CSP
+square.addEventListener('click', function () {
     const tempo = Date.now() - startTime;
     reactionTime.textContent = tempo;
     iniciarRodada();
-};
+});
 
 iniciarRodada();

@@ -1,9 +1,10 @@
+// Os status usam a camada compartilhada shared/logger.js (LogJS.status).
+
 // Seleção de Elementos do DOM
 const body = document.getElementById('main-body');
 const title = document.getElementById('title');
 const paragraph = document.getElementById('paragraph');
 const img = document.getElementById('demo-img');
-const statusLog = document.getElementById('status-log');
 
 // Mapa de Cores (Mantendo sua lógica original, mas organizada)
 const colors = {
@@ -28,7 +29,7 @@ function changeColor(colorName) {
     title.style.color = theme.text;
     paragraph.style.color = theme.text;
     
-    updateStatus(`Tema ${colorName.toUpperCase()} aplicado`);
+    LogJS.status('status-log', `Tema ${colorName.toUpperCase()} aplicado`);
 }
 
 // Alternar Texto do Parágrafo
@@ -37,7 +38,7 @@ function toggleText() {
     paragraph.innerText = isAltText 
         ? "Texto alterado dinamicamente! O DOM foi atualizado com sucesso." 
         : "Este elemento está esperando para ser manipulado pelo JavaScript Vanilla.";
-    updateStatus("Texto alternado");
+    LogJS.status('status-log', "Texto alternado");
 }
 
 // Alternar Tamanho da Imagem/Card
@@ -52,15 +53,7 @@ function toggleSize() {
         img.style.height = "150px";
         title.style.fontSize = "1.875rem"; // text-3xl
     }
-    updateStatus(isLarge ? "Modo Grande ativado" : "Tamanho padrão restaurado");
-}
-
-// Atualiza o Log Visual na Tela
-function updateStatus(msg) {
-    statusLog.textContent = msg;
-    // Efeito visual rápido no log
-    statusLog.style.opacity = '0.5';
-    setTimeout(() => statusLog.style.opacity = '1', 200);
+    LogJS.status('status-log', isLarge ? "Modo Grande ativado" : "Tamanho padrão restaurado");
 }
 
 // Event Listener de Teclado (Sua lógica original aprimorada)
@@ -72,3 +65,11 @@ document.addEventListener("keydown", (e) => {
         changeColor(colorMap[key]);
     }
 });
+
+// Liga os botões aos eventos (sem onclick inline, compatível com CSP)
+document.querySelectorAll('[data-color]').forEach((btn) => {
+    btn.addEventListener('click', () => changeColor(btn.dataset.color));
+});
+
+document.getElementById('btn-toggle-text').addEventListener('click', toggleText);
+document.getElementById('btn-toggle-size').addEventListener('click', toggleSize);
