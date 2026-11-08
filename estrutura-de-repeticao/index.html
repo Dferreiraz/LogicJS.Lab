@@ -3,31 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Content Security Policy: restringe origens de scripts, estilos e fontes -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.tailwindcss.com; style-src 'self' 'unsafe-inline' https://unpkg.com; font-src 'self' data: https://unpkg.com; img-src 'self' data: https://placehold.co; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
     <title>Loops | LogicJS.Lab</title>
-    <link rel="shortcut icon" href="./assets/img/favicon.svg" type="image/x-icon">
+    <link rel="shortcut icon" href="../shared/assets/estrutura-de-repeticao.svg" type="image/x-icon">
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'bg-primary': '#0f172a',
-                        'bg-secondary': '#1e293b',
-                        'text-primary': '#f8fafc',
-                        'accent': '#F7DF1E',          
-                        'accent-hover': '#E5CC16', 
-                        'border-color': '#334155',
-                        'code-bg': '#111827',
-                        'keyword': '#c678dd',
-                        'method': '#61afef',
-                    }
-                }
-            }
-        }
-    </script>
-    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <script src="../shared/tailwind-config.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.2/src/regular/style.css">
 </head>
 <body class="bg-bg-primary text-text-primary min-h-screen flex items-center justify-center p-6 relative font-mono">
 
@@ -47,7 +32,7 @@
                 <div id="console-output" class="bg-black/50 rounded-lg p-4 h-64 overflow-y-auto text-sm text-green-400 font-mono">
                     <p class="text-gray-500">// Selecione um loop para executar...</p>
                 </div>
-                <button onclick="clearConsole()" class="mt-3 text-xs text-text-secondary hover:text-accent underline">Limpar Console</button>
+                <button type="button" id="btn-clear-console" class="mt-3 text-xs text-text-secondary hover:text-accent underline">Limpar Console</button>
             </div>
         </div>
 
@@ -55,28 +40,29 @@
         <div class="bg-bg-secondary border border-border-color rounded-xl p-6 flex flex-col gap-3">
             <h2 class="text-xl mb-2 text-accent">Tipos de Loop</h2>
             
-            <button onclick="runCounting()" class="bg-bg-primary border border-border-color hover:border-accent p-3 rounded-lg text-left transition-all flex items-center justify-between group">
+            <button type="button" id="btn-run-counting" class="bg-bg-primary border border-border-color hover:border-accent p-3 rounded-lg text-left transition-all flex items-center justify-between group">
                 <span><span class="text-method">for</span> (Contagem 0 a 10)</span>
                 <i class="ph ph-play-circle text-accent opacity-0 group-hover:opacity-100"></i>
             </button>
             
-            <button onclick="runTabuada()" class="bg-bg-primary border border-border-color hover:border-accent p-3 rounded-lg text-left transition-all flex items-center justify-between group">
+            <button type="button" id="btn-run-tabuada" class="bg-bg-primary border border-border-color hover:border-accent p-3 rounded-lg text-left transition-all flex items-center justify-between group">
                 <span><span class="text-method">for</span> (Tabuada do 5)</span>
                 <i class="ph ph-calculator text-accent opacity-0 group-hover:opacity-100"></i>
             </button>
 
-            <button onclick="runEvenNumbers()" class="bg-bg-primary border border-border-color hover:border-accent p-3 rounded-lg text-left transition-all flex items-center justify-between group">
+            <button type="button" id="btn-run-even" class="bg-bg-primary border border-border-color hover:border-accent p-3 rounded-lg text-left transition-all flex items-center justify-between group">
                 <span><span class="text-method">for</span> (Pares 0 a 20)</span>
                 <i class="ph ph-number-square-two text-accent opacity-0 group-hover:opacity-100"></i>
             </button>
 
-            <button onclick="runWhileCountdown()" class="bg-bg-primary border border-border-color hover:border-accent p-3 rounded-lg text-left transition-all flex items-center justify-between group mt-4">
+            <button type="button" id="btn-run-countdown" class="bg-bg-primary border border-border-color hover:border-accent p-3 rounded-lg text-left transition-all flex items-center justify-between group mt-4">
                 <span><span class="text-method">while</span> (Contagem Regressiva)</span>
                 <i class="ph ph-timer text-accent opacity-0 group-hover:opacity-100"></i>
             </button>
         </div>
     </div>
 
+    <script src="../shared/logger.js"></script>
     <script src="./script.js"></script>
 </body>
 </html>

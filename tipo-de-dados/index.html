@@ -3,33 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Content Security Policy: restringe origens de scripts, estilos e fontes -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.tailwindcss.com; style-src 'self' 'unsafe-inline' https://unpkg.com; font-src 'self' data: https://unpkg.com; img-src 'self' data: https://placehold.co; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
     <title>Tipos de Dados | LogicJS.Lab</title>
-    <link rel="shortcut icon" href="./assets/img/favicon.svg" type="image/x-icon">
+    <link rel="shortcut icon" href="../shared/assets/tipo-de-dados.svg" type="image/x-icon">
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'bg-primary': '#0f172a',
-                        'bg-secondary': '#1e293b',
-                        'text-primary': '#f8fafc',
-                        'accent': '#F7DF1E',
-                        'border-color': '#334155',
-                        'code-bg': '#111827',
-                        'type-string': '#98c379',   // Verde
-                        'type-number': '#d19a66',   // Laranja
-                        'type-boolean': '#c678dd',  // Roxo
-                        'type-null': '#e06c75',     // Vermelho
-                        'type-undef': '#5c6370',    // Cinza
-                    }
-                }
-            }
-        }
-    </script>
-    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <script src="../shared/tailwind-config.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.2/src/regular/style.css">
 </head>
 <body class="bg-bg-primary text-text-primary min-h-screen flex items-center justify-center p-6 relative font-mono">
 
@@ -53,7 +36,7 @@
                            class="w-full bg-bg-primary border border-border-color rounded p-3 text-white focus:border-accent outline-none font-mono">
                 </div>
                 
-                <button onclick="analyzeType()" class="w-full bg-accent text-bg-primary font-bold py-3 rounded-lg hover:bg-accent-hover transition">
+                <button type="button" id="btn-analyze" class="w-full bg-accent text-bg-primary font-bold py-3 rounded-lg hover:bg-accent-hover transition">
                     Identificar Tipo
                 </button>
 

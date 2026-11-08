@@ -1,3 +1,5 @@
+// Os logs usam a camada compartilhada shared/logger.js (LogJS.append / LogJS.clear).
+
 // ==========================================
 // ESTRUTURAS de Repetição - Desenvolvimento em JS - Senai Suíço-brasileiro
 // Servem para o software fazer repetições (loops)
@@ -26,32 +28,19 @@
 // }
 // =================================================================================================================
 
-const output = document.getElementById('console-output');
-
-function log(msg) {
-    const p = document.createElement('p');
-    p.textContent = `> ${msg}`;
-    output.appendChild(p);
-    output.scrollTop = output.scrollHeight;
-}
-
-function clearConsole() {
-    output.innerHTML = '<p class="text-gray-500">// Console limpo.</p>';
-}
-
 // 1. Contagem Simples (For)
 function runCounting() {
-    clearConsole();
-    log("--- Iniciando Contagem (for) ---");
+    LogJS.clear('console-output', '// Console limpo.');
+    LogJS.append('console-output', "--- Iniciando Contagem (for) ---");
     let i = 0;
     
     function step() {
         if (i <= 10) {
-            log(i);
+            LogJS.append('console-output', i);
             i++;
             setTimeout(step, 300); // Espera 300ms para o próximo
         } else {
-            log("Fim da contagem!");
+            LogJS.append('console-output', "Fim da contagem!");
         }
     }
     step();
@@ -59,17 +48,17 @@ function runCounting() {
 
 // 2. Tabuada do 5 (For)
 function runTabuada() {
-    clearConsole();
-    log("--- Tabuada do 5 ---");
+    LogJS.clear('console-output', '// Console limpo.');
+    LogJS.append('console-output', "--- Tabuada do 5 ---");
     let i = 1;
     
     function step() {
         if (i <= 10) {
-            log(`5 x ${i} = ${5 * i}`);
+            LogJS.append('console-output', `5 x ${i} = ${5 * i}`);
             i++;
             setTimeout(step, 400);
         } else {
-            log("Tabuada finalizada!");
+            LogJS.append('console-output', "Tabuada finalizada!");
         }
     }
     step();
@@ -77,19 +66,19 @@ function runTabuada() {
 
 // 3. Números Pares (For com Condicional)
 function runEvenNumbers() {
-    clearConsole();
-    log("--- Números Pares (0 a 20) ---");
+    LogJS.clear('console-output', '// Console limpo.');
+    LogJS.append('console-output', "--- Números Pares (0 a 20) ---");
     let i = 0;
     
     function step() {
         if (i <= 20) {
             if (i % 2 === 0) {
-                log(`${i} é par`);
+                LogJS.append('console-output', `${i} é par`);
             }
             i++;
             setTimeout(step, 200);
         } else {
-            log("Busca por pares finalizada.");
+            LogJS.append('console-output', "Busca por pares finalizada.");
         }
     }
     step();
@@ -97,18 +86,27 @@ function runEvenNumbers() {
 
 // 4. Contagem Regressiva (While)
 function runWhileCountdown() {
-    clearConsole();
-    log("--- Contagem Regressiva (while) ---");
+    LogJS.clear('console-output', '// Console limpo.');
+    LogJS.append('console-output', "--- Contagem Regressiva (while) ---");
     let i = 10;
     
     function step() {
         if (i >= 1) {
-            log(i);
+            LogJS.append('console-output', i);
             i--;
             setTimeout(step, 500); // Mais lento para dar suspense
         } else {
-            log("🚀 FIM!");
+            LogJS.append('console-output', "🚀 FIM!");
         }
     }
     step();
 }
+
+// Liga os botões aos eventos (sem onclick inline, compatível com CSP)
+document.getElementById('btn-clear-console').addEventListener('click', () => {
+    LogJS.clear('console-output', '// Console limpo.');
+});
+document.getElementById('btn-run-counting').addEventListener('click', runCounting);
+document.getElementById('btn-run-tabuada').addEventListener('click', runTabuada);
+document.getElementById('btn-run-even').addEventListener('click', runEvenNumbers);
+document.getElementById('btn-run-countdown').addEventListener('click', runWhileCountdown);

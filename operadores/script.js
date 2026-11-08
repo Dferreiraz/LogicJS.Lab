@@ -11,27 +11,43 @@ const resLog = document.getElementById('res-log');
 
 // Função para atualizar todos os cálculos
 function updateCalculations() {
-    const a = Number(inputA.value);
-    const b = Number(inputB.value);
+    const rawA = inputA.value.trim();
+    const rawB = inputB.value.trim();
+    const a = Number(rawA);
+    const b = Number(rawB);
 
-    // 1. Aritméticos
-    resArit.innerHTML = `
-        <div class="flex justify-between"><span>Soma (+):</span> <span class="text-accent">${a + b}</span></div>
-        <div class="flex justify-between"><span>Subtração (-):</span> <span class="text-accent">${a - b}</span></div>
-        <div class="flex justify-between"><span>Multiplicação (*):</span> <span class="text-accent">${a * b}</span></div>
-        <div class="flex justify-between"><span>Divisão (/):</span> <span class="text-accent">${(a / b).toFixed(2)}</span></div>
-        <div class="flex justify-between"><span>Módulo (%):</span> <span class="text-accent">${a % b}</span></div>
-        <div class="flex justify-between"><span>Potência (**):</span> <span class="text-accent">${a ** b}</span></div>
-    `;
+    // Number('') retorna 0; por isso checamos o texto vazio e usamos Number.isFinite.
+    const entradasValidas = rawA !== '' && rawB !== '' && Number.isFinite(a) && Number.isFinite(b);
 
-    // 2. Comparação
-    resComp.innerHTML = `
-        <div class="flex justify-between"><span>Igual (==):</span> <span class="${a == b ? 'text-green-400' : 'text-red-400'}">${a == b}</span></div>
-        <div class="flex justify-between"><span>Estritamente igual (===):</span> <span class="${a === b ? 'text-green-400' : 'text-red-400'}">${a === b}</span></div>
-        <div class="flex justify-between"><span>Diferente (!=):</span> <span class="${a != b ? 'text-green-400' : 'text-red-400'}">${a != b}</span></div>
-        <div class="flex justify-between"><span>Maior (>):</span> <span class="${a > b ? 'text-green-400' : 'text-red-400'}">${a > b}</span></div>
-        <div class="flex justify-between"><span>Menor (<):</span> <span class="${a < b ? 'text-green-400' : 'text-red-400'}">${a < b}</span></div>
-    `;
+    if (!entradasValidas) {
+        const aviso = '<div class="text-center text-red-400 text-xs py-2">Informe dois números válidos.</div>';
+        resArit.innerHTML = aviso;
+        resComp.innerHTML = aviso;
+    } else {
+        // 1. Aritméticos
+        const divisao = b === 0 ? '∞ (divisão por zero)' : (a / b).toFixed(2);
+        const modulo = b === 0 ? '—' : a % b;
+
+        resArit.innerHTML = `
+            <div class="flex justify-between"><span>Soma (+):</span> <span class="text-accent">${a + b}</span></div>
+            <div class="flex justify-between"><span>Subtração (-):</span> <span class="text-accent">${a - b}</span></div>
+            <div class="flex justify-between"><span>Multiplicação (*):</span> <span class="text-accent">${a * b}</span></div>
+            <div class="flex justify-between"><span>Divisão (/):</span> <span class="text-accent">${divisao}</span></div>
+            <div class="flex justify-between"><span>Módulo (%):</span> <span class="text-accent">${modulo}</span></div>
+            <div class="flex justify-between"><span>Potência (**):</span> <span class="text-accent">${a ** b}</span></div>
+        `;
+
+        // 2. Comparação
+        // == e != são usados de propósito para demonstrar a diferença entre
+        // igualdade flexível e estrita. Em código real, prefira sempre === e !==.
+        resComp.innerHTML = `
+            <div class="flex justify-between"><span>Igual (==):</span> <span class="${a == b ? 'text-green-400' : 'text-red-400'}">${a == b}</span></div>
+            <div class="flex justify-between"><span>Estritamente igual (===):</span> <span class="${a === b ? 'text-green-400' : 'text-red-400'}">${a === b}</span></div>
+            <div class="flex justify-between"><span>Diferente (!=):</span> <span class="${a != b ? 'text-green-400' : 'text-red-400'}">${a != b}</span></div>
+            <div class="flex justify-between"><span>Maior (>):</span> <span class="${a > b ? 'text-green-400' : 'text-red-400'}">${a > b}</span></div>
+            <div class="flex justify-between"><span>Menor (<):</span> <span class="${a < b ? 'text-green-400' : 'text-red-400'}">${a < b}</span></div>
+        `;
+    }
 
     // 3. Lógicos
     resLog.innerHTML = `
@@ -69,6 +85,10 @@ function toggleBool(type) {
     }
     updateCalculations();
 }
+
+// Liga os botões aos eventos (sem onclick inline, compatível com CSP)
+document.getElementById('btn-choc').addEventListener('click', () => toggleBool('chocolate'));
+document.getElementById('btn-pipoca').addEventListener('click', () => toggleBool('pipoca'));
 
 // Adiciona listeners para os inputs numéricos
 inputA.addEventListener('input', updateCalculations);

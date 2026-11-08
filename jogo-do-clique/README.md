@@ -62,6 +62,14 @@ Além de proporcionar uma experiência interativa, o projeto permite explorar ev
 
 ---
 
+## 🧩 Camada compartilhada
+
+O tema visual vem de [`../shared/tailwind-config.js`](../shared/tailwind-config.js), carregado depois do CDN do Tailwind. Cores e tipografia ficam centralizadas para todo o laboratório.
+
+O clique no quadrado é tratado com `addEventListener()` no `script.js`, sem `onclick` inline. Este módulo não usa console virtual, portanto não depende do `LogJS`; o posicionamento e o tempo de reação são atualizados diretamente no DOM.
+
+---
+
 ## 🚀 Como executar o projeto
 
 ### 1. Clone o repositório
@@ -89,7 +97,7 @@ jogo-do-clique/
 │
 ├── index.html
 ├── script.js
-└── style.css
+└── README.md
 ```
 
 ---
@@ -103,7 +111,7 @@ jogo-do-clique/
 
 **JavaScript e DOM**
 - Seleção e manipulação de elementos.
-- Eventos de clique com `onclick`.
+- Eventos de clique com `addEventListener()`.
 - Temporizadores com `setTimeout`.
 - Captura de timestamps para medir intervalos.
 - Atualização dinâmica da interface.

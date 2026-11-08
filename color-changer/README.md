@@ -46,6 +46,14 @@ A aplicação permite alterar dinamicamente as cores da interface por meio de in
 
 ---
 
+## 🧩 Camada compartilhada
+
+O tema visual vem de [`../shared/tailwind-config.js`](../shared/tailwind-config.js), carregado depois do CDN do Tailwind. Cores e tipografia ficam centralizadas para todo o laboratório.
+
+Os eventos são registrados com `addEventListener()` no `script.js`, sem `onclick` inline. Este módulo não usa console virtual, portanto não depende do `LogJS`; as mudanças de cor e de estado são aplicadas diretamente nos elementos do DOM.
+
+---
+
 ## 🚀 Como executar o projeto
 
 ### 1. Clone o repositório
@@ -73,7 +81,7 @@ color-changer/
 │
 ├── index.html
 ├── script.js
-└── style.css
+└── README.md
 ```
 
 ---
@@ -82,9 +90,10 @@ color-changer/
 
 - Seleção de elementos do DOM.
 - Manipulação de propriedades de estilo.
-- Eventos de interação do usuário.
+- Eventos de interação do usuário com `addEventListener()`.
 - Integração entre HTML, CSS e JavaScript.
 - Atualização dinâmica da interface.
+- Separação entre HTML, JavaScript e a camada compartilhada de tema.
 
 ---
 

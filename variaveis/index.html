@@ -3,32 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Content Security Policy: restringe origens de scripts, estilos e fontes -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.tailwindcss.com; style-src 'self' 'unsafe-inline' https://unpkg.com; font-src 'self' data: https://unpkg.com; img-src 'self' data: https://placehold.co; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
     <title>Fundamentos | LogicJS.Lab</title>
-    <link rel="shortcut icon" href="./assets/img/variaveis.svg" type="image/x-icon">
+    <link rel="shortcut icon" href="../shared/assets/variaveis.svg" type="image/x-icon">
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'bg-primary': '#0f172a',
-                        'bg-secondary': '#1e293b',
-                        'text-primary': '#f8fafc',
-                        'accent': '#F7DF1E',
-                        'accent-hover': '#E5CC16',
-                        'border-color': '#334155',
-                        'code-bg': '#111827',
-                        'keyword': '#c678dd', 
-                        'string': '#98c379',   
-                        'number': '#d19a66',   
-                    }
-                }
-            }
-        }
-    </script>
-    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <script src="../shared/tailwind-config.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.2/src/regular/style.css">
 </head>
 <body class="bg-bg-primary text-text-primary min-h-screen flex items-center justify-center p-6 relative font-mono">
 
@@ -68,15 +52,15 @@ cidade = <span class="text-string">"Tão tão distante"</span>;
                 </div>
 
                 <div class="grid grid-cols-1 gap-3">
-                    <button onclick="testVar()" class="bg-bg-primary border border-border-color hover:border-accent p-3 rounded-lg text-left transition-all flex items-center justify-between group">
+                    <button type="button" id="btn-test-var" class="bg-bg-primary border border-border-color hover:border-accent p-3 rounded-lg text-left transition-all flex items-center justify-between group">
                         <span>Testar <span class="text-keyword">var</span></span>
                         <i class="ph ph-play-circle text-accent opacity-0 group-hover:opacity-100"></i>
                     </button>
-                    <button onclick="testLet()" class="bg-bg-primary border border-border-color hover:border-accent p-3 rounded-lg text-left transition-all flex items-center justify-between group">
+                    <button type="button" id="btn-test-let" class="bg-bg-primary border border-border-color hover:border-accent p-3 rounded-lg text-left transition-all flex items-center justify-between group">
                         <span>Testar <span class="text-keyword">let</span></span>
                         <i class="ph ph-play-circle text-accent opacity-0 group-hover:opacity-100"></i>
                     </button>
-                    <button onclick="testConst()" class="bg-bg-primary border border-border-color hover:border-accent p-3 rounded-lg text-left transition-all flex items-center justify-between group">
+                    <button type="button" id="btn-test-const" class="bg-bg-primary border border-border-color hover:border-accent p-3 rounded-lg text-left transition-all flex items-center justify-between group">
                         <span>Testar <span class="text-keyword">const</span></span>
                         <i class="ph ph-play-circle text-accent opacity-0 group-hover:opacity-100"></i>
                     </button>
@@ -85,6 +69,7 @@ cidade = <span class="text-string">"Tão tão distante"</span>;
         </div>
     </div>
 
+    <script src="../shared/logger.js"></script>
     <script src="./script.js"></script>
 </body>
 </html>

@@ -18,9 +18,11 @@
   •
   <a href="#-sobre-o-projeto">Sobre</a> •
   <a href="#-projetos">Projetos</a> •
-  <a href="#-como-executar-o-projeto">Como executar</a> •
+  <a href="#-arquitetura-compartilhada">Arquitetura</a> •
+  <a href="#-segurança">Segurança</a> •
   <br>
   •
+  <a href="#-como-executar-o-projeto">Como executar</a> •
   <a href="#-tecnologias">Tecnologias</a> •
   <a href="#-estrutura-do-projeto">Estrutura</a> •
   <a href="#-autor">Autor</a> •
@@ -39,7 +41,7 @@ A proposta é consolidar os fundamentos da programação por meio de projetos pe
 ### 🎯 Objetivos do projeto
 
 - Desenvolver o raciocínio lógico e a capacidade de resolver problemas.
-- Praticar JavaScript sem depender de frameworks ou bibliotecas externas.
+- Praticar JavaScript sem depender de frameworks JavaScript.
 - Compreender a manipulação do DOM e o gerenciamento de eventos.
 - Trabalhar com arrays, objetos, condições e funções.
 - Aplicar conceitos de HTML e CSS em aplicações interativas.
@@ -50,21 +52,113 @@ A proposta é consolidar os fundamentos da programação por meio de projetos pe
 
 ## 🚀 Projetos
 
-O laboratório reúne diferentes projetos, cada um com foco em conceitos específicos da programação.
+O laboratório reúne **14 miniaplicações**, cada uma com foco em conceitos específicos da programação.
 
 | Projeto | Conceitos principais | Acessar |
 |---|---|---|
-| **Calculadora** | Operações matemáticas, funções, lógica condicional e validação de entradas. | [Abrir](./calculadora/index.html) |
+| **Calculadora** | Operações matemáticas, validação de expressões e avaliador próprio (sem `eval`). | [Abrir](./calculadora/index.html) |
 | **Color Changer** | Manipulação do DOM, eventos e alteração dinâmica de estilos. | [Abrir](./color-changer/index.html) |
 | **Counter** | Variáveis, eventos, controle de estado e atualização da interface. | [Abrir](./counter/index.html) |
-| **Jogo do Clique** | Eventos de mouse, posicionamento de elementos e tempo de reação. | [Abrir](./jogo-do-clique/index.html) |
+| **Jogo do Clique** | Eventos de mouse, posicionamento absoluto e tempo de reação. | [Abrir](./jogo-do-clique/index.html) |
 | **Reviews** | Arrays de objetos, índices e navegação dinâmica entre avaliações. | [Abrir](./reviews/index.html) |
+| **Variáveis** | `var`, `let` e `const`, escopo e reatribuição. | [Abrir](./variaveis/index.html) |
+| **Funções** | Parâmetros, retorno e reutilização de blocos de código. | [Abrir](./funcoes/index.html) |
+| **Arrays** | `push`, `pop`, `unshift`, `shift` e `forEach`. | [Abrir](./arrays/index.html) |
+| **Operadores** | Aritmética, comparação e lógica booleana (`AND`, `OR`, `NOT`). | [Abrir](./operadores/index.html) |
+| **Loops & Repetição** | `for` e `while` para automatizar tarefas e percorrer dados. | [Abrir](./estrutura-de-repeticao/index.html) |
+| **Condicionais** | `if/else`, `else if` e `switch case` em cenários reais. | [Abrir](./estruturas-condicionais/index.html) |
+| **Estrutura de Dados** | Arrays de objetos, validação e renderização segura de registros. | [Abrir](./estrutura-dados/index.html) |
+| **Tipos de Dados** | `typeof`, `String`, `Number`, `Boolean`, `null` e `undefined`. | [Abrir](./tipo-de-dados/index.html) |
+| **Manipulação DOM** | Seleção de elementos, estilos, teclado e atualização em tempo real. | [Abrir](./manipulacao-dom/index.html) |
+
+---
+
+## 🧩 Arquitetura compartilhada
+
+A partir da refatoração DRY, o que era repetido em cada página foi centralizado na pasta [`shared/`](./shared):
+
+```text
+shared/
+├── tailwind-config.js   → tema Tailwind único (cores e tipografia)
+├── logger.js            → utilitário global LogJS
+└── assets/              → 16 SVGs (favicons e ícones de interface)
+```
+
+### Tema Tailwind centralizado
+
+Cada HTML carrega o CDN do Tailwind e, logo depois, o mesmo arquivo de configuração:
+
+```html
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="../shared/tailwind-config.js"></script>
+```
+
+Na página inicial (`index.html`), o caminho é `./shared/tailwind-config.js`. O tema é um superset de todas as configurações que antes estavam duplicadas em cada `<head>`.
+
+### Logger compartilhado (`LogJS`)
+
+Os módulos que possuem console virtual usam a API global definida em [`shared/logger.js`](./shared/logger.js):
+
+```js
+LogJS.append('console-output', 'mensagem');        // linha padrão
+LogJS.append('console-output', 'falha', { type: 'error' }); // linha vermelha
+LogJS.clear('console-output');                     // limpa o console
+LogJS.status('status-log', 'Tema aplicado');       // status com fade
+```
+
+Módulos que usam o logger: `variaveis`, `funcoes`, `arrays`, `estrutura-dados`, `estrutura-de-repeticao` e `manipulacao-dom`. O `logger.js` é sempre carregado **antes** do `script.js` da página.
+
+### Assets centralizados
+
+Todos os favicons e ícones de interface ficam em `shared/assets/`. Os HTMLs referenciam, por exemplo:
+
+```html
+<link rel="shortcut icon" href="../shared/assets/arrays.svg" type="image/x-icon">
+```
+
+---
+
+## 🔐 Segurança
+
+As páginas aplicam um conjunto de práticas defensivas compatíveis com a execução estática no navegador:
+
+### Content Security Policy (CSP)
+
+Todos os 15 HTMLs possuem uma meta tag de CSP no `<head>`, restringindo as origens permitidas:
+
+- `script-src`: apenas o próprio site e o CDN do Tailwind.
+- `style-src` / `font-src`: o próprio site e o CDN dos ícones Phosphor.
+- `img-src`: o próprio site e o serviço de imagens placeholder.
+- `object-src 'none'`, `base-uri 'self'` e `form-action 'self'`.
+
+### Proteção contra XSS
+
+- Os dados de usuário **não são interpolados em `innerHTML`**.
+- Cards e resultados são montados com `document.createElement()` e preenchidos com `.textContent`, que trata o conteúdo como texto puro.
+- A renderização de listas em `estrutura-dados`, `arrays` e `estruturas-condicionais` segue esse padrão.
+
+### Validador matemático customizado
+
+- A calculadora **não usa `eval()` nem `Function()`**.
+- A expressão passa por uma allowlist estrita (apenas dígitos, `+`, `-`, `*`, `/`, `.` e espaços) e é resolvida por um avaliador próprio, com precedência de operadores, sinal unário e tratamento de divisão por zero.
+- Entradas inválidas exibem `Erro` no display e abortam o cálculo.
+
+### Validação de entrada
+
+- E-mail com regex simples; nome obrigatório e limitado.
+- Idade inteira entre 1 e 120 (`Number.isInteger`).
+- Conversões numéricas verificadas com `Number.isFinite()` e `Number.isNaN()`.
+- Campos vazios ou não numéricos são rejeitados antes de qualquer cálculo.
+
+### Sem handlers inline
+
+- Nenhum `onclick=""` no HTML.
+- Os eventos são registrados com `addEventListener()` no JavaScript.
+- Todos os botões possuem `type="button"`.
 
 ---
 
 ## 🧠 Conceitos praticados
-
-Ao longo dos projetos, o laboratório aborda fundamentos importantes da programação:
 
 **Lógica de programação**
 - Variáveis e tipos de dados.
@@ -80,11 +174,12 @@ Ao longo dos projetos, o laboratório aborda fundamentos importantes da programa
 - Arrays e objetos.
 - Índices e navegação entre dados.
 - Controle de estado simples.
+- Criação segura de elementos com `createElement` e `textContent`.
 
 **Desenvolvimento Front-End**
 - Estruturação com HTML5.
-- Estilização com CSS3.
-- Organização de arquivos.
+- Estilização com Tailwind CSS.
+- Organização de arquivos e camada compartilhada.
 - Construção de interfaces interativas.
 - Separação entre estrutura, estilo e comportamento.
 
@@ -92,13 +187,12 @@ Ao longo dos projetos, o laboratório aborda fundamentos importantes da programa
 
 ## 🛠 Tecnologias
 
-As seguintes tecnologias são utilizadas no desenvolvimento dos projetos.
-
 ### Front-End
 
 - **HTML5** — Estrutura e organização do conteúdo.
 - **Tailwind CSS** — Estilização e apresentação visual.
 - **JavaScript Vanilla (ES6+)** — Manipulação de arrays, objetos, índices, eventos e DOM.
+- **Phosphor Icons** — Ícones da interface (carregados via CSS, versão fixada).
 
 ### Ferramentas
 
@@ -137,7 +231,9 @@ Abra o arquivo `index.html` localizado na raiz do projeto.
 
 Você também pode utilizar a extensão **Live Server** no VS Code para executar a página localmente e facilitar os testes durante o desenvolvimento.
 
-Depois, navegue pelo menu principal para acessar os mini-projetos ou abra diretamente o arquivo `index.html` da pasta desejada.
+> Como os HTMLs carregam scripts e estilos locais (`shared/`), execute o projeto por um servidor local (Live Server) em vez de abrir o arquivo diretamente via `file://`.
+
+Depois, navegue pelo menu principal para acessar os mini-projetos ou abra diretamente o `index.html` da pasta desejada.
 
 ---
 
@@ -147,27 +243,75 @@ Depois, navegue pelo menu principal para acessar os mini-projetos ou abra direta
 LogicJS.Lab/
 │
 ├── index.html
+├── README.md
+│
+├── shared/
+│   ├── tailwind-config.js
+│   ├── logger.js
+│   └── assets/
+│       └── *.svg
 │
 ├── calculadora/
-│   └── index.html
+│   ├── index.html
+│   ├── scripts.js
+│   └── README.md
 │
 ├── color-changer/
-│   └── index.html
+│   ├── index.html
+│   ├── script.js
+│   └── README.md
 │
 ├── counter/
-│   └── index.html
+│   ├── index.html
+│   ├── script.js
+│   └── README.md
 │
 ├── jogo-do-clique/
-│   └── index.html
+│   ├── index.html
+│   ├── script.js
+│   └── README.md
 │
 ├── reviews/
-│   └── index.html
+│   ├── index.html
+│   ├── script.js
+│   └── README.md
 │
-└── README.md
+├── variaveis/
+│   ├── index.html
+│   └── script.js
+│
+├── funcoes/
+│   ├── index.html
+│   └── script.js
+│
+├── arrays/
+│   ├── index.html
+│   └── script.js
+│
+├── operadores/
+│   ├── index.html
+│   └── script.js
+│
+├── estrutura-de-repeticao/
+│   ├── index.html
+│   └── script.js
+│
+├── estruturas-condicionais/
+│   ├── index.html
+│   └── script.js
+│
+├── estrutura-dados/
+│   ├── index.html
+│   └── script.js
+│
+├── tipo-de-dados/
+│   ├── index.html
+│   └── script.js
+│
+└── manipulacao-dom/
+    ├── index.html
+    └── script.js
 ```
-
-> A estrutura acima representa a organização prevista para o laboratório. Arquivos JavaScript e outros recursos podem estar presentes em cada pasta, conforme a implementação de cada projeto.
-
 
 ---
 

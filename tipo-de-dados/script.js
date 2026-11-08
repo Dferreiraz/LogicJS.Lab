@@ -31,24 +31,38 @@
 const input = document.getElementById('test-input');
 const resultBox = document.getElementById('result-box');
 const resultType = document.getElementById('result-type');
+const resultLabel = document.querySelector('#result-box p');
+const btnAnalyze = document.getElementById('btn-analyze');
+
+// Regex para reconhecer apenas números decimais simples.
+// Evita casos como 0x10, Infinity ou notação científica.
+const NUMERO_DECIMAL = /^[+-]?(\d+(\.\d+)?|\.\d+)$/;
 
 function analyzeType() {
-    let value = input.value.trim();
-    
-    if (value === "") {
-        alert("Por favor, digite algum valor para analisar!");
+    const rawValue = input.value.trim();
+
+    if (rawValue === "") {
+        resultLabel.textContent = 'Digite um valor para analisar.';
+        resultType.textContent = '—';
+        resultType.className = 'text-2xl font-bold tracking-wider uppercase text-red-400';
+        resultBox.classList.remove('hidden');
         return;
     }
 
     // Tenta converter para número se parecer um número
-    let analyzedValue = value;
-    if (!isNaN(value) && value !== '') {
-        analyzedValue = Number(value);
-    } else if (value === 'true' || value === 'false') {
-        analyzedValue = (value === 'true');
-    } else if (value === 'null') {
+    let analyzedValue = rawValue;
+
+    // Number.isNaN() é mais seguro que o isNaN() global, que faz coerção implícita.
+    const numero = Number(rawValue);
+    const pareceNumero = NUMERO_DECIMAL.test(rawValue) && !Number.isNaN(numero) && Number.isFinite(numero);
+
+    if (pareceNumero) {
+        analyzedValue = numero;
+    } else if (rawValue === 'true' || rawValue === 'false') {
+        analyzedValue = (rawValue === 'true');
+    } else if (rawValue === 'null') {
         analyzedValue = null;
-    } else if (value === 'undefined') {
+    } else if (rawValue === 'undefined') {
         analyzedValue = undefined;
     }
 
@@ -68,13 +82,17 @@ function analyzeType() {
     }
 
     // Atualiza a UI
+    resultLabel.textContent = 'O tipo deste valor é:';
     resultType.textContent = type.toUpperCase();
     resultType.className = `text-2xl font-bold tracking-wider uppercase ${colorClass}`;
     resultBox.classList.remove('hidden');
 }
 
-// Permite apertar Enter para analisar
-input.addEventListener('keypress', function (e) {
+// Liga o botão ao evento (sem onclick inline, compatível com CSP)
+btnAnalyze.addEventListener('click', analyzeType);
+
+// Permite apertar Enter para analisar (keydown é o evento recomendado)
+input.addEventListener('keydown', function (e) {
     if (e.key === 'Enter') {
         analyzeType();
     }
