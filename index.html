@@ -23,16 +23,16 @@
 <body class="bg-bg-primary text-text-primary font-main min-h-screen flex flex-col">
 
     <!-- Header -->
-    <header class="text-center py-16 pb-12 border-b border-border-color">
-        <div class="container mx-auto px-6">
+    <header class="text-center py-12 pb-10 sm:py-16 sm:pb-12 border-b border-border-color">
+        <div class="container mx-auto px-4 sm:px-6">
             <div class="flex items-center justify-center gap-3 mb-4">
                 <i class="ph ph-brain text-4xl text-accent"></i>
-                <h1 class="text-4xl font-bold tracking-tight">
+                <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight">
                     Logic<span class="text-title">JS</span>.Lab
                 </h1>
             </div>
 
-            <p class="text-text-secondary text-lg max-w-2xl mx-auto mb-8">
+            <p class="text-text-secondary text-base sm:text-lg max-w-2xl mx-auto mb-6 sm:mb-8">
                 Laboratório de fundamentos. Onde a lógica de programação e o JavaScript Vanilla ganham vida.
             </p>
 
@@ -51,9 +51,9 @@
     </header>
 
     <!-- Main Content -->
-    <main class="flex-1 py-12">
-        <div class="container mx-auto px-6">
-            <h2 class="text-2xl mb-8 pb-3 border-b-2 border-accent inline-block">
+    <main class="flex-1 py-8 sm:py-12">
+        <div class="container mx-auto px-4 sm:px-6">
+            <h2 class="text-xl sm:text-2xl mb-6 sm:mb-8 pb-3 border-b-2 border-accent inline-block">
                 Projetos do Laboratório
             </h2>
 
@@ -246,15 +246,41 @@
                     </a>
                 </article>
 
+                <!-- Consumo de API -->
+                <article class="bg-bg-card border border-border-color rounded-xl p-6 transition-all duration-200 hover:-translate-y-1 hover:shadow-[0_10px_25px_-5px_rgba(247,223,30,0.15)] hover:border-accent flex flex-col">
+                    <i class="ph ph-cloud-arrow-down text-3xl text-accent mb-4"></i>
+                    <h3 class="text-xl mb-3">Consumo de API</h3>
+                    <p class="text-text-secondary text-sm mb-6 flex-1">
+                        Aprenda a fazer requisições externas usando Fetch API, Promises e Async/Await.
+                    </p>
+                    <a href="./consumo-api/index.html" class="inline-flex items-center justify-center gap-2 bg-accent text-bg-primary font-semibold py-3 px-4 rounded-lg transition-colors duration-200 hover:bg-accent-hover">
+                        Acessar Projeto
+                        <i class="ph ph-arrow-right"></i>
+                    </a>
+                </article>
+
+                <!-- Local Storage -->
+                <article class="bg-bg-card border border-border-color rounded-xl p-6 transition-all duration-200 hover:-translate-y-1 hover:shadow-[0_10px_25px_-5px_rgba(247,223,30,0.15)] hover:border-accent flex flex-col">
+                    <i class="ph ph-floppy-disk text-3xl text-accent mb-4"></i>
+                    <h3 class="text-xl mb-3">Local Storage</h3>
+                    <p class="text-text-secondary text-sm mb-6 flex-1">
+                        Aprenda a salvar dados no navegador e criar estado persistente usando a Web Storage API e JSON.
+                    </p>
+                    <a href="./local-storage/index.html" class="inline-flex items-center justify-center gap-2 bg-accent text-bg-primary font-semibold py-3 px-4 rounded-lg transition-colors duration-200 hover:bg-accent-hover">
+                        Acessar Projeto
+                        <i class="ph ph-arrow-right"></i>
+                    </a>
+                </article>
+
             </div>
         </div>
     </main>
 
     <!-- Footer -->
     <footer class="text-center py-8 border-t border-border-color text-text-secondary text-sm">
-        <div class="container mx-auto px-6">
+        <div class="container mx-auto px-4 sm:px-6">
             <p>Desenvolvido por Davi Ferreira</p>
-            <a href="https://github.com/Dferreiraz" class="inline-flex items-center gap-2 text-text-primary no-underline mt-2 font-semibold transition-colors duration-200 hover:text-accent">
+            <a href="https://github.com/Dferreiraz" class="inline-flex items-center gap-2 text-text-primary no-underline mt-2 min-h-[44px] py-2 font-semibold transition-colors duration-200 hover:text-accent">
                 <i class="ph ph-github-logo"></i>
                 Ver perfil no GitHub
             </a>

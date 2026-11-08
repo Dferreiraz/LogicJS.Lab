@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="Consumo de API">
+  <!-- Nuvem: representa um serviço externo na internet -->
+  <g fill="#F7DF1E">
+    <circle cx="12" cy="15" r="5.5"/>
+    <circle cx="19.5" cy="13.5" r="6.5"/>
+    <rect x="8" y="15" width="16" height="6" rx="3"/>
+  </g>
+  <!-- Seta para baixo: representa o download dos dados (fetch) -->
+  <path d="M16 12.5v6.5" fill="none" stroke="#1E1E1E" stroke-width="3" stroke-linecap="round"/>
+  <path d="m13.2 16.2 2.8 2.8 2.8-2.8" fill="none" stroke="#1E1E1E" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

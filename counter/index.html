@@ -14,25 +14,25 @@
     <script src="../shared/tailwind-config.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.2/src/regular/style.css">
 </head>
-<body class="bg-bg-primary text-text-primary min-h-screen flex items-center justify-center p-6 relative">
+<body class="bg-bg-primary text-text-primary min-h-screen flex items-center justify-center px-4 pb-6 pt-24 sm:px-6 sm:pb-8 sm:pt-6 relative">
 
     <!-- Botão Voltar -->
-    <a href="../index.html" class="fixed top-6 left-6 inline-flex items-center gap-2 bg-bg-secondary border border-border-color px-4 py-2 rounded-lg font-semibold text-sm hover:bg-accent hover:text-bg-primary transition-colors z-50">
+    <a href="../index.html" class="fixed top-4 left-4 sm:top-6 sm:left-6 inline-flex items-center gap-2 bg-bg-secondary border border-border-color px-4 py-3 rounded-lg font-semibold text-sm hover:bg-accent hover:text-bg-primary transition-colors z-50">
         <i class="ph ph-arrow-left"></i> Voltar ao Menu
     </a>
 
-    <div class="bg-bg-secondary border border-border-color p-8 rounded-2xl shadow-xl w-full max-w-sm text-center">
+    <div class="bg-bg-secondary border border-border-color p-6 sm:p-8 rounded-2xl shadow-xl w-full max-w-sm text-center">
         <i class="ph ph-plus-minus text-5xl text-accent mb-4"></i>
         <h1 class="text-2xl font-bold mb-6">The Counter</h1>
         
         <!-- ID "value" preservado -->
-        <div id="value" class="text-6xl font-bold text-text-primary mb-8 font-mono">0</div>
+        <div id="value" class="text-5xl sm:text-6xl font-bold text-text-primary mb-8 font-mono">0</div>
         
         <div class="flex justify-center gap-4">
             <!-- IDs preservados exatamente como no script -->
-            <button type="button" id="btn-decrease" class="bg-red-500/20 text-red-400 hover:bg-red-500/30 p-3 rounded-lg font-bold transition w-16 text-xl">-</button>
-            <button type="button" id="btn-reset" class="bg-bg-primary border border-border-color hover:border-accent text-text-primary p-3 rounded-lg font-bold transition w-16 text-sm">Reset</button>
-            <button type="button" id="btn-increase" class="bg-accent text-bg-primary hover:bg-accent-hover p-3 rounded-lg font-bold transition w-16 text-xl">+</button>
+            <button type="button" id="btn-decrease" class="bg-red-500/20 text-red-400 hover:bg-red-500/30 p-3 rounded-lg font-bold transition w-16 min-h-[44px] text-xl">-</button>
+            <button type="button" id="btn-reset" class="bg-bg-primary border border-border-color hover:border-accent text-text-primary p-3 rounded-lg font-bold transition w-16 min-h-[44px] text-sm">Reset</button>
+            <button type="button" id="btn-increase" class="bg-accent text-bg-primary hover:bg-accent-hover p-3 rounded-lg font-bold transition w-16 min-h-[44px] text-xl">+</button>
         </div>
     </div>
 

@@ -14,10 +14,10 @@
     <script src="../shared/tailwind-config.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.2/src/regular/style.css">
 </head>
-<body class="bg-bg-primary text-text-primary min-h-screen flex items-center justify-center p-6 relative font-mono">
+<body class="bg-bg-primary text-text-primary min-h-screen flex items-center justify-center px-4 pb-6 pt-24 sm:px-6 sm:pb-8 sm:pt-6 relative font-mono">
 
     <!-- Botão Voltar -->
-    <a href="../index.html" class="fixed top-6 left-6 inline-flex items-center gap-2 bg-bg-secondary border border-border-color px-4 py-2 rounded-lg font-semibold text-sm hover:bg-accent hover:text-bg-primary transition-colors z-50">
+    <a href="../index.html" class="fixed top-4 left-4 sm:top-6 sm:left-6 inline-flex items-center gap-2 bg-bg-secondary border border-border-color px-4 py-3 rounded-lg font-semibold text-sm hover:bg-accent hover:text-bg-primary transition-colors z-50">
         <i class="ph ph-arrow-left"></i> Voltar ao Menu
     </a>
 
@@ -40,7 +40,7 @@
                     Identificar Tipo
                 </button>
 
-                <div id="result-box" class="hidden mt-4 p-4 bg-black/40 rounded-lg border border-border-color text-center">
+                <div id="result-box" class="hidden mt-4 p-4 bg-black/40 rounded-lg border border-border-color text-center break-words">
                     <p class="text-xs text-text-secondary mb-1">O tipo deste valor é:</p>
                     <h3 id="result-type" class="text-2xl font-bold tracking-wider uppercase"></h3>
                 </div>
@@ -62,25 +62,25 @@
             <div class="bg-code-bg border border-border-color rounded-xl p-5">
                 <h3 class="text-type-string font-bold mb-2 flex items-center gap-2"><i class="ph ph-text-t"></i> String</h3>
                 <p class="text-sm text-slate-400 mb-2">Textos sempre entre aspas.</p>
-                <code class="text-xs bg-black/30 p-2 rounded block">let nome = "Ferreira"</code>
+                <code class="text-xs bg-black/30 p-2 rounded block overflow-x-auto">let nome = "Ferreira"</code>
             </div>
 
             <div class="bg-code-bg border border-border-color rounded-xl p-5">
                 <h3 class="text-type-number font-bold mb-2 flex items-center gap-2"><i class="ph ph-hash"></i> Number</h3>
                 <p class="text-sm text-slate-400 mb-2">Números inteiros ou decimais.</p>
-                <code class="text-xs bg-black/30 p-2 rounded block">let idade = 25<br>const pi = 3.14</code>
+                <code class="text-xs bg-black/30 p-2 rounded block overflow-x-auto">let idade = 25<br>const pi = 3.14</code>
             </div>
 
             <div class="bg-code-bg border border-border-color rounded-xl p-5">
                 <h3 class="text-type-boolean font-bold mb-2 flex items-center gap-2"><i class="ph ph-toggle-left"></i> Boolean</h3>
                 <p class="text-sm text-slate-400 mb-2">Apenas verdadeiro ou falso.</p>
-                <code class="text-xs bg-black/30 p-2 rounded block">let maior = true<br>let pago = false</code>
+                <code class="text-xs bg-black/30 p-2 rounded block overflow-x-auto">let maior = true<br>let pago = false</code>
             </div>
 
             <div class="bg-code-bg border border-border-color rounded-xl p-5">
                 <h3 class="text-type-null font-bold mb-2 flex items-center gap-2"><i class="ph ph-prohibit"></i> Null & Undefined</h3>
                 <p class="text-sm text-slate-400 mb-2">Ausência de valor proposital ou não definida.</p>
-                <code class="text-xs bg-black/30 p-2 rounded block">let desc = null<br>let prod; // undefined</code>
+                <code class="text-xs bg-black/30 p-2 rounded block overflow-x-auto">let desc = null<br>let prod; // undefined</code>
             </div>
         </div>
     </div>

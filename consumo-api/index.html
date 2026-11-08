@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Content Security Policy -->
+     <meta http-equiv="Content-Security-Policy"
+    content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.tailwindcss.com; style-src 'self' 'unsafe-inline' https://unpkg.com; font-src 'self' data: https://unpkg.com; img-src 'self' data: https://placehold.co; connect-src 'self' https://api.adviceslip.com https://api.mymemory.translated.net; object-src 'none'; base-uri 'self'; form-action 'self'">
+    <title>Consumindo API | LogicJS.Lab</title>
+    <link rel="icon" type="image/svg+xml" href="../shared/assets/consumo-api.svg">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="../shared/tailwind-config.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.2/src/regular/style.css">
+</head>
+
+<body class="bg-bg-primary text-text-primary min-h-screen flex flex-col items-center justify-center px-4 pb-6 pt-24 sm:px-6 sm:pb-8 sm:pt-6 gap-6 sm:gap-8 relative font-main transition-colors duration-500">
+
+    <!-- Botão Voltar -->
+    <a href="../index.html"
+        class="fixed top-4 left-4 sm:top-6 sm:left-6 inline-flex items-center gap-2 bg-bg-secondary border border-border-color px-4 py-3 rounded-xl font-semibold text-sm hover:bg-accent hover:text-bg-primary hover:shadow-lg transition-all duration-300 z-50 group">
+        <i class="ph ph-arrow-left group-hover:-translate-x-1 transition-transform"></i>
+        Voltar ao Menu
+    </a>
+
+    <!-- Header/Card Principal -->
+    <section class="w-full max-w-3xl">
+        <div class="bg-bg-secondary border border-border-color p-6 sm:p-10 rounded-2xl shadow-2xl text-center backdrop-blur-sm">
+            <span class="inline-block px-4 py-1.5 bg-accent/10 border border-accent/20 rounded-full text-accent/80 text-xl sm:text-3xl font-semibold mb-4">
+                Consumindo API
+            </span>
+            <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 text-accent tracking-tight">
+                AdviceSlip
+            </h1>
+            <h2 class="text-xl sm:text-2xl md:text-3xl font-semibold mb-4 text-text-primary">
+                Seu guia conselheiro
+            </h2>
+            <p class="text-text-secondary text-base sm:text-lg max-w-md mx-auto">
+                Selecione o modo que você deseja no controle abaixo
+            </p>
+        </div>
+    </section>
+
+    <!-- Grid Principal -->
+    <section class="w-full max-w-4xl grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
+        
+        <!-- Área de Exibição do Conselho -->
+        <div class="bg-bg-secondary border border-border-color rounded-2xl p-6 sm:p-8 shadow-xl flex flex-col items-center justify-center min-h-[200px] hover:border-accent/50 transition-all duration-300">
+            <div class="text-center w-full min-w-0">
+                <i class="ph ph-chat-circle-text text-5xl text-accent/60 mb-4"></i>
+                <p id="conselho" class="text-lg sm:text-xl text-text-primary font-medium leading-relaxed break-words">
+                    Selecione o modo para ver seu conselho
+                </p>
+
+                <!-- Botão de Tradução -->
+                <button type="button" id="btn-traduzir" disabled
+                    class="mt-6 inline-flex items-center justify-center gap-2 bg-bg-primary border border-border-color text-text-secondary text-sm font-semibold px-4 py-3 rounded-lg transition-all duration-300 hover:border-accent hover:text-accent disabled:opacity-50 disabled:cursor-not-allowed">
+                    <i class="ph ph-translate"></i>
+                    <span id="texto-traduzir">Traduzir</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Painel de Controles -->
+        <div class="bg-bg-secondary border border-border-color rounded-2xl p-6 sm:p-8 shadow-xl">
+            <div class="flex items-center gap-3 mb-6 pb-4 border-b border-border-color">
+                <i class="ph ph-sliders text-2xl text-accent"></i>
+                <h2 class="text-2xl font-bold text-accent">Controle</h2>
+            </div>
+
+            <div class="space-y-4">
+                <!-- Botão Conselho Aleatório -->
+                <button type="button" id="btn-random-advice"
+                    class="w-full bg-gradient-to-r from-accent to-accent/80 hover:from-accent/90 hover:to-accent text-bg-primary font-semibold py-3.5 px-6 rounded-xl transition-all duration-300 flex items-center justify-center gap-3 hover:scale-[1.02] active:scale-[0.98] shadow-lg hover:shadow-accent/25">
+                    <i class="ph ph-shuffle text-xl"></i>
+                    Conselho aleatório
+                </button>
+
+                <!-- Formulário por Número -->
+                <form id="form-advice" class="space-y-4">
+                    <div>
+                        <label for="number" class="block text-sm font-medium text-text-secondary mb-2">
+                            Digite um número para receber um conselho:
+                        </label>
+                        <div class="relative">
+                            <input type="number" id="number" name="number" 
+                                placeholder="Ex: 79 - 01 ao 224" required
+                                class="w-full bg-bg-primary border border-border-color text-text-primary px-4 py-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent transition-all duration-300 placeholder:text-text-secondary/50">
+                            <i class="ph ph-hash absolute right-4 top-1/2 -translate-y-1/2 text-text-secondary/40"></i>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" id="btn-advice"
+                        class="w-full bg-bg-primary border-2 border-border-color hover:border-accent text-text-primary font-semibold py-3.5 px-6 rounded-xl transition-all duration-300 flex items-center justify-center gap-2 hover:bg-accent hover:text-bg-primary group">
+                        <i class="ph ph-paper-plane-right group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"></i>
+                        Enviar
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <script src="../shared/logger.js"></script>
+    <script src="./script.js"></script>
+</body>
+
+</html>

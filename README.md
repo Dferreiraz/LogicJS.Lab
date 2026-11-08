@@ -52,7 +52,7 @@ A proposta é consolidar os fundamentos da programação por meio de projetos pe
 
 ## 🚀 Projetos
 
-O laboratório reúne **14 miniaplicações**, cada uma com foco em conceitos específicos da programação.
+O laboratório reúne **16 miniaplicações**, cada uma com foco em conceitos específicos da programação.
 
 | Projeto | Conceitos principais | Acessar |
 |---|---|---|
@@ -70,6 +70,8 @@ O laboratório reúne **14 miniaplicações**, cada uma com foco em conceitos es
 | **Estrutura de Dados** | Arrays de objetos, validação e renderização segura de registros. | [Abrir](./estrutura-dados/index.html) |
 | **Tipos de Dados** | `typeof`, `String`, `Number`, `Boolean`, `null` e `undefined`. | [Abrir](./tipo-de-dados/index.html) |
 | **Manipulação DOM** | Seleção de elementos, estilos, teclado e atualização em tempo real. | [Abrir](./manipulacao-dom/index.html) |
+| **Consumo de API** | Requisições externas com Fetch API, Promises, `async/await` e tratamento de erros. | [Abrir](./consumo-api/index.html) |
+| **Local Storage** | Persistência no navegador com Web Storage API, JSON (`stringify`/`parse`) e CRUD no Front-end. | [Abrir](./local-storage/index.html) |
 
 ---
 
@@ -81,7 +83,7 @@ A partir da refatoração DRY, o que era repetido em cada página foi centraliza
 shared/
 ├── tailwind-config.js   → tema Tailwind único (cores e tipografia)
 ├── logger.js            → utilitário global LogJS
-└── assets/              → 16 SVGs (favicons e ícones de interface)
+└── assets/              → 18 SVGs (favicons e ícones de interface)
 ```
 
 ### Tema Tailwind centralizado
@@ -124,7 +126,7 @@ As páginas aplicam um conjunto de práticas defensivas compatíveis com a execu
 
 ### Content Security Policy (CSP)
 
-Todos os 15 HTMLs possuem uma meta tag de CSP no `<head>`, restringindo as origens permitidas:
+Todos os 17 HTMLs possuem uma meta tag de CSP no `<head>`, restringindo as origens permitidas:
 
 - `script-src`: apenas o próprio site e o CDN do Tailwind.
 - `style-src` / `font-src`: o próprio site e o CDN dos ícones Phosphor.
@@ -135,7 +137,7 @@ Todos os 15 HTMLs possuem uma meta tag de CSP no `<head>`, restringindo as orige
 
 - Os dados de usuário **não são interpolados em `innerHTML`**.
 - Cards e resultados são montados com `document.createElement()` e preenchidos com `.textContent`, que trata o conteúdo como texto puro.
-- A renderização de listas em `estrutura-dados`, `arrays` e `estruturas-condicionais` segue esse padrão.
+- A renderização de listas em `estrutura-dados`, `arrays`, `estruturas-condicionais` e `local-storage` segue esse padrão.
 
 ### Validador matemático customizado
 
@@ -175,6 +177,11 @@ Todos os 15 HTMLs possuem uma meta tag de CSP no `<head>`, restringindo as orige
 - Índices e navegação entre dados.
 - Controle de estado simples.
 - Criação segura de elementos com `createElement` e `textContent`.
+
+**Persistência de dados**
+- Web Storage API (`localStorage`).
+- Serialização e desserialização com `JSON.stringify` e `JSON.parse`.
+- CRUD no Front-end e estado que sobrevive ao recarregamento.
 
 **Desenvolvimento Front-End**
 - Estruturação com HTML5.
@@ -308,9 +315,19 @@ LogicJS.Lab/
 │   ├── index.html
 │   └── script.js
 │
-└── manipulacao-dom/
+├── manipulacao-dom/
+│   ├── index.html
+│   └── script.js
+│
+├── consumo-api/
+│   ├── index.html
+│   ├── script.js
+│   └── README.md
+│
+└── local-storage/
     ├── index.html
-    └── script.js
+    ├── script.js
+    └── README.md
 ```
 
 ---
