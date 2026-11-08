@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tipos de Dados | LogicJS.Lab</title>
+    <link rel="shortcut icon" href="./assets/img/favicon.svg" type="image/x-icon">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'bg-primary': '#0f172a',
+                        'bg-secondary': '#1e293b',
+                        'text-primary': '#f8fafc',
+                        'accent': '#F7DF1E',
+                        'border-color': '#334155',
+                        'code-bg': '#111827',
+                        'type-string': '#98c379',   // Verde
+                        'type-number': '#d19a66',   // Laranja
+                        'type-boolean': '#c678dd',  // Roxo
+                        'type-null': '#e06c75',     // Vermelho
+                        'type-undef': '#5c6370',    // Cinza
+                    }
+                }
+            }
+        }
+    </script>
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+<body class="bg-bg-primary text-text-primary min-h-screen flex items-center justify-center p-6 relative font-mono">
+
+    <!-- Botão Voltar -->
+    <a href="../index.html" class="fixed top-6 left-6 inline-flex items-center gap-2 bg-bg-secondary border border-border-color px-4 py-2 rounded-lg font-semibold text-sm hover:bg-accent hover:text-bg-primary transition-colors z-50">
+        <i class="ph ph-arrow-left"></i> Voltar ao Menu
+    </a>
+
+    <div class="w-full max-w-4xl grid grid-cols-1 md:grid-cols-2 gap-8">
+        
+        <!-- Analisador de Tipos -->
+        <div class="bg-bg-secondary border border-border-color rounded-xl p-6 h-fit">
+            <h2 class="text-xl mb-4 text-accent flex items-center gap-2">
+                <i class="ph ph-magnifying-glass"></i> Analisador typeof
+            </h2>
+            
+            <div class="space-y-4">
+                <div>
+                    <label class="block text-xs text-text-secondary mb-1">Digite um valor para testar:</label>
+                    <input type="text" id="test-input" placeholder='Ex: "Davi", 25, true...' 
+                           class="w-full bg-bg-primary border border-border-color rounded p-3 text-white focus:border-accent outline-none font-mono">
+                </div>
+                
+                <button onclick="analyzeType()" class="w-full bg-accent text-bg-primary font-bold py-3 rounded-lg hover:bg-accent-hover transition">
+                    Identificar Tipo
+                </button>
+
+                <div id="result-box" class="hidden mt-4 p-4 bg-black/40 rounded-lg border border-border-color text-center">
+                    <p class="text-xs text-text-secondary mb-1">O tipo deste valor é:</p>
+                    <h3 id="result-type" class="text-2xl font-bold tracking-wider uppercase"></h3>
+                </div>
+            </div>
+
+            <div class="mt-6 pt-6 border-t border-border-color">
+                <h3 class="text-sm text-text-secondary mb-3">Guia Rápido de Cores</h3>
+                <div class="grid grid-cols-2 gap-2 text-xs">
+                    <div class="flex items-center gap-2"><span class="w-3 h-3 rounded-full bg-type-string"></span> String (Texto)</div>
+                    <div class="flex items-center gap-2"><span class="w-3 h-3 rounded-full bg-type-number"></span> Number (Número)</div>
+                    <div class="flex items-center gap-2"><span class="w-3 h-3 rounded-full bg-type-boolean"></span> Boolean (Lógico)</div>
+                    <div class="flex items-center gap-2"><span class="w-3 h-3 rounded-full bg-type-null"></span> Null / Undefined</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Exemplos Práticos -->
+        <div class="space-y-4">
+            <div class="bg-code-bg border border-border-color rounded-xl p-5">
+                <h3 class="text-type-string font-bold mb-2 flex items-center gap-2"><i class="ph ph-text-t"></i> String</h3>
+                <p class="text-sm text-slate-400 mb-2">Textos sempre entre aspas.</p>
+                <code class="text-xs bg-black/30 p-2 rounded block">let nome = "Ferreira"</code>
+            </div>
+
+            <div class="bg-code-bg border border-border-color rounded-xl p-5">
+                <h3 class="text-type-number font-bold mb-2 flex items-center gap-2"><i class="ph ph-hash"></i> Number</h3>
+                <p class="text-sm text-slate-400 mb-2">Números inteiros ou decimais.</p>
+                <code class="text-xs bg-black/30 p-2 rounded block">let idade = 25<br>const pi = 3.14</code>
+            </div>
+
+            <div class="bg-code-bg border border-border-color rounded-xl p-5">
+                <h3 class="text-type-boolean font-bold mb-2 flex items-center gap-2"><i class="ph ph-toggle-left"></i> Boolean</h3>
+                <p class="text-sm text-slate-400 mb-2">Apenas verdadeiro ou falso.</p>
+                <code class="text-xs bg-black/30 p-2 rounded block">let maior = true<br>let pago = false</code>
+            </div>
+
+            <div class="bg-code-bg border border-border-color rounded-xl p-5">
+                <h3 class="text-type-null font-bold mb-2 flex items-center gap-2"><i class="ph ph-prohibit"></i> Null & Undefined</h3>
+                <p class="text-sm text-slate-400 mb-2">Ausência de valor proposital ou não definida.</p>
+                <code class="text-xs bg-black/30 p-2 rounded block">let desc = null<br>let prod; // undefined</code>
+            </div>
+        </div>
+    </div>
+
+    <script src="./script.js"></script>
+</body>
+</html>

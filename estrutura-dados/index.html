@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estrutura de Dados | LogicJS.Lab</title>
+    <link rel="shortcut icon" href="./assets/img/favicon.svg" type="image/x-icon">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'bg-primary': '#0f172a',
+                        'bg-secondary': '#1e293b',
+                        'text-primary': '#f8fafc',
+                        'text-secondary': '#94a3b8',
+                        'accent': '#F7DF1E',          // Amarelo JavaScript
+                        'accent-hover': '#E5CC16',    // Amarelo um pouco mais escuro para hover
+                        'border-color': '#334155',
+                        'code-bg': '#111827',
+                        'key': '#c678dd',
+                        'value': '#98c379',
+                    }
+                }
+            }
+        }
+    </script>
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+<body class="bg-bg-primary text-text-primary min-h-screen flex items-center justify-center p-6 relative font-mono">
+
+    <!-- Botão Voltar -->
+    <a href="../index.html" class="fixed top-6 left-6 inline-flex items-center gap-2 bg-bg-secondary border border-border-color px-4 py-2 rounded-lg font-semibold text-sm hover:bg-accent hover:text-bg-primary transition-colors z-50">
+        <i class="ph ph-arrow-left"></i> Voltar ao Menu
+    </a>
+
+    <div class="w-full max-w-5xl grid grid-cols-1 lg:grid-cols-2 gap-8">
+        
+        <!-- Formulário de Adição -->
+        <div class="bg-bg-secondary border border-border-color rounded-xl p-6 h-fit">
+            <h2 class="text-xl mb-4 text-accent flex items-center gap-2">
+                <i class="ph ph-plus-circle"></i> Novo Registro
+            </h2>
+            
+            <div class="space-y-4">
+                <div>
+                    <label class="block text-xs text-text-secondary mb-1">Nome</label>
+                    <input type="text" id="input-nome" placeholder="Ex: Davi Ferreira" class="w-full bg-bg-primary border border-border-color rounded p-2 text-white focus:border-accent outline-none">
+                </div>
+                <div>
+                    <label class="block text-xs text-text-secondary mb-1">Idade</label>
+                    <input type="number" id="input-idade" placeholder="Ex: 17" class="w-full bg-bg-primary border border-border-color rounded p-2 text-white focus:border-accent outline-none">
+                </div>
+                <div>
+                    <label class="block text-xs text-text-secondary mb-1">Email</label>
+                    <input type="email" id="input-email" placeholder="Ex: davi@logicjs.lab" class="w-full bg-bg-primary border border-border-color rounded p-2 text-white focus:border-accent outline-none">
+                </div>
+                
+                <button onclick="addRegistro()" class="w-full bg-accent text-bg-primary font-bold py-3 rounded-lg hover:bg-accent-hover transition flex items-center justify-center gap-2 mt-2">
+                    <i class="ph ph-floppy-disk"></i> Salvar no Array
+                </button>
+            </div>
+
+            <div class="mt-6 pt-6 border-t border-border-color">
+                <h3 class="text-sm text-text-secondary mb-2">Console de Ações</h3>
+                <div id="console-log" class="bg-black/50 rounded p-3 h-24 overflow-y-auto text-xs text-green-400">
+                    <p>// Sistema pronto...</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Visualização do Banco de Dados -->
+        <div class="bg-code-bg border border-border-color rounded-xl p-6 shadow-xl flex flex-col">
+            <div class="flex justify-between items-center mb-4">
+                <h2 class="text-xl text-accent flex items-center gap-2">
+                    <i class="ph ph-table"></i> Base de Dados (Array de Objetos)
+                </h2>
+                <span id="total-registros" class="bg-bg-secondary px-3 py-1 rounded-full text-xs border border-border-color text-text-primary">0 registros</span>
+            </div>
+            
+            <div id="db-container" class="flex-1 overflow-y-auto space-y-3 pr-2 custom-scrollbar">
+                <!-- Os cards de objetos aparecerão aqui -->
+                <div class="text-center text-text-secondary py-10 italic">
+                    Nenhum registro encontrado.<br>Adicione dados ao lado!
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="./script.js"></script>
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrays | LogicJS.Lab</title>
+    <link rel="shortcut icon" href="./assets/img/favicon.svg" type="image/x-icon">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'bg-primary': '#0f172a',
+                        'bg-secondary': '#1e293b',
+                        'text-primary': '#f8fafc',
+                        'accent': '#F7DF1E',          
+                        'accent-hover': '#E5CC16',    
+                        'border-color': '#334155',
+                        'code-bg': '#111827',
+                        'keyword': '#c678dd',
+                        'method': '#F7DF1E',     
+                        'string': '#98c379',
+                    }
+                }
+            }
+        }
+    </script>
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+<body class="bg-bg-primary text-text-primary min-h-screen flex items-center justify-center p-6 relative font-mono">
+
+    <!-- Botão Voltar -->
+    <a href="../index.html" class="fixed top-6 left-6 inline-flex items-center gap-2 bg-bg-secondary border border-border-color px-4 py-2 rounded-lg font-semibold text-sm hover:bg-accent hover:text-bg-primary transition-colors z-50">
+        <i class="ph ph-arrow-left"></i> Voltar ao Menu
+    </a>
+
+    <div class="w-full max-w-4xl grid grid-cols-1 md:grid-cols-2 gap-8">
+        
+        <!-- Área do Código / Visualização -->
+        <div class="flex flex-col gap-4">
+            <div class="bg-code-bg border border-border-color rounded-xl p-6 shadow-xl">
+                <h2 class="text-xl mb-4 text-accent flex items-center gap-2">
+                    <i class="ph ph-brackets-curly"></i> Array Atual
+                </h2>
+                <div id="array-display" class="bg-black/50 rounded-lg p-4 text-sm text-green-400 break-words font-mono">
+                    <!-- Os itens do array aparecerão aqui -->
+                </div>
+            </div>
+            
+            <div class="bg-bg-secondary border border-border-color rounded-xl p-6">
+                <h2 class="text-xl mb-4 text-accent flex items-center gap-2">
+                    <i class="ph ph-terminal-window"></i> Console
+                </h2>
+                <div id="console-output" class="bg-black/50 rounded-lg p-4 h-32 overflow-y-auto text-xs text-slate-300 font-mono">
+                    <p class="text-gray-500">// Aguardando comandos...</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Área de Controles -->
+        <div class="bg-bg-secondary border border-border-color rounded-xl p-6 flex flex-col gap-3">
+            <h2 class="text-xl mb-2 text-accent">Métodos de Manipulação</h2>
+            
+            <button onclick="addFim()" class="bg-bg-primary border border-border-color hover:border-accent p-3 rounded-lg text-left transition-all flex items-center justify-between group">
+                <span><span class="text-accent font-bold">.push()</span> "Banana"</span>
+                <i class="ph ph-plus-circle text-accent opacity-0 group-hover:opacity-100"></i>
+            </button>
+            
+            <button onclick="removeFim()" class="bg-bg-primary border border-border-color hover:border-red-400 p-3 rounded-lg text-left transition-all flex items-center justify-between group">
+                <span><span class="text-red-400 font-bold">.pop()</span> (Remove último)</span>
+                <i class="ph ph-minus-circle text-red-400 opacity-0 group-hover:opacity-100"></i>
+            </button>
+
+            <button onclick="addInicio()" class="bg-bg-primary border border-border-color hover:border-accent p-3 rounded-lg text-left transition-all flex items-center justify-between group">
+                <span><span class="text-accent font-bold">.unshift()</span> "Abacaxi"</span>
+                <i class="ph ph-arrow-line-up text-accent opacity-0 group-hover:opacity-100"></i>
+            </button>
+
+            <button onclick="removeInicio()" class="bg-bg-primary border border-border-color hover:border-red-400 p-3 rounded-lg text-left transition-all flex items-center justify-between group">
+                <span><span class="text-red-400 font-bold">.shift()</span> (Remove primeiro)</span>
+                <i class="ph ph-arrow-line-down text-red-400 opacity-0 group-hover:opacity-100"></i>
+            </button>
+
+            <button onclick="forEachTest()" class="bg-bg-primary border border-border-color hover:border-accent p-3 rounded-lg text-left transition-all flex items-center justify-between group mt-4">
+                <span><span class="text-accent font-bold">.forEach()</span> (Saudação)</span>
+                <i class="ph ph-users text-accent opacity-0 group-hover:opacity-100"></i>
+            </button>
+        </div>
+    </div>
+
+    <script src="./script.js"></script>
+</body>
+</html>

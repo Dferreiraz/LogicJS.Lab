@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fundamentos | LogicJS.Lab</title>
+    <link rel="shortcut icon" href="./assets/img/variaveis.svg" type="image/x-icon">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'bg-primary': '#0f172a',
+                        'bg-secondary': '#1e293b',
+                        'text-primary': '#f8fafc',
+                        'accent': '#F7DF1E',
+                        'accent-hover': '#E5CC16',
+                        'border-color': '#334155',
+                        'code-bg': '#111827',
+                        'keyword': '#c678dd', 
+                        'string': '#98c379',   
+                        'number': '#d19a66',   
+                    }
+                }
+            }
+        }
+    </script>
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+<body class="bg-bg-primary text-text-primary min-h-screen flex items-center justify-center p-6 relative font-mono">
+
+    <!-- Botão Voltar -->
+    <a href="../index.html" class="fixed top-6 left-6 inline-flex items-center gap-2 bg-bg-secondary border border-border-color px-4 py-2 rounded-lg font-semibold text-sm hover:bg-accent hover:text-bg-primary transition-colors z-50">
+        <i class="ph ph-arrow-left"></i> Voltar ao Menu
+    </a>
+
+    <div class="w-full max-w-4xl grid grid-cols-1 md:grid-cols-2 gap-8">
+        
+        <!-- Área do Código -->
+        <div class="bg-code-bg border border-border-color rounded-xl p-6 shadow-xl overflow-hidden">
+            <h2 class="text-xl mb-4 text-accent flex items-center gap-2">
+                <i class="ph ph-code"></i> script.js
+            </h2>
+            <pre class="text-sm leading-relaxed text-slate-300">
+<span class="text-keyword">var</span> idade = <span class="text-number">50</span>;
+idade = <span class="text-number">25</span>;
+
+<span class="text-keyword">let</span> cidade = <span class="text-string">"Xique-Xique"</span>;
+cidade = <span class="text-string">"Tão tão distante"</span>;
+
+<span class="text-keyword">const</span> cpf = <span class="text-number">132434365...</span>;
+<span class="text-gray-500">// cpf = 2142134; // Erro!</span>
+            </pre>
+        </div>
+
+        <!-- Área Interativa / Console -->
+        <div class="flex flex-col gap-4">
+            <div class="bg-bg-secondary border border-border-color rounded-xl p-6 h-full flex flex-col">
+                <h2 class="text-xl mb-4 text-accent flex items-center gap-2">
+                    <i class="ph ph-terminal-window"></i> Console Virtual
+                </h2>
+                
+                <div id="console-output" class="bg-black/50 rounded-lg p-4 flex-1 font-mono text-sm text-green-400 mb-4 overflow-y-auto h-48">
+                    <p class="text-gray-500">// Clique nos botões abaixo para testar...</p>
+                </div>
+
+                <div class="grid grid-cols-1 gap-3">
+                    <button onclick="testVar()" class="bg-bg-primary border border-border-color hover:border-accent p-3 rounded-lg text-left transition-all flex items-center justify-between group">
+                        <span>Testar <span class="text-keyword">var</span></span>
+                        <i class="ph ph-play-circle text-accent opacity-0 group-hover:opacity-100"></i>
+                    </button>
+                    <button onclick="testLet()" class="bg-bg-primary border border-border-color hover:border-accent p-3 rounded-lg text-left transition-all flex items-center justify-between group">
+                        <span>Testar <span class="text-keyword">let</span></span>
+                        <i class="ph ph-play-circle text-accent opacity-0 group-hover:opacity-100"></i>
+                    </button>
+                    <button onclick="testConst()" class="bg-bg-primary border border-border-color hover:border-accent p-3 rounded-lg text-left transition-all flex items-center justify-between group">
+                        <span>Testar <span class="text-keyword">const</span></span>
+                        <i class="ph ph-play-circle text-accent opacity-0 group-hover:opacity-100"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="./script.js"></script>
+</body>
+</html>

@@ -1,96 +1,67 @@
-// ==========================================
-// ESTRUTURAS CONDICIONAIS - Desenvolvimento em JS - Senai Suiço-brasileiro
-// Servem para o software tomar decisões
-// ==========================================
+// --- ATIVIDADE 1: Sinal de Trânsito (If / Else) ---
+function checkSinal() {
+    const sinal = document.getElementById('sinal-input').value;
+    const resDiv = document.getElementById('res-sinal');
+    let msg = "";
+    let color = "";
 
-// ---------------------------------------------------------
-// ATIVIDADE 1: If / Else Básico (Sinal de Trânsito)
-// ---------------------------------------------------------
-console.log("=== ATIVIDADE 1: SINAL DE TRÂNSITO ===");
+    if (sinal === "verde") {
+        msg = "VAI! Prossiga com segurança.";
+        color = "text-green-400";
+    } else if (sinal === "amarelo") {
+        msg = "ATENÇÃO! Reduza a velocidade.";
+        color = "text-yellow-400";
+    } else {
+        msg = "PARE! Aguarde o sinal abrir.";
+        color = "text-red-400";
+    }
 
-let sinal = "verde";
-
-if (sinal === "verde") {
-    console.log("VAI");
-} else {
-    console.log("PARE");
+    resDiv.innerHTML = `<span class="${color} font-bold">${msg}</span>`;
 }
 
+// --- ATIVIDADE 2: Verificação de Nota (If / Else If / Else) ---
+function checkNota() {
+    const nota = Number(document.getElementById('nota-input').value);
+    const resDiv = document.getElementById('res-nota');
+    let msg = "";
+    let color = "";
 
-// ---------------------------------------------------------
-// ATIVIDADE 2: If / Else If / Else (Verificação de Nota)
-// ---------------------------------------------------------
-console.log("\n=== ATIVIDADE 2: VERIFICAÇÃO DE NOTA ===");
+    if (isNaN(nota)) {
+        msg = "Por favor, digite uma nota válida.";
+        color = "text-gray-400";
+    } else if (nota >= 6) {
+        msg = "Aprovado! Parabéns! 🎉";
+        color = "text-green-400";
+    } else if (nota === 5) {
+        msg = "Recuperação - Bateu na trave! 😅";
+        color = "text-yellow-400";
+    } else {
+        msg = "Reprovado - Prepare-se para estudar mais. 📚";
+        color = "text-red-400";
+    }
 
-let nota = 7;
-
-if (nota >= 6) {
-    console.log("Aprovado! Parabéns!");
-} else if (nota === 5) {
-    console.log("Recuperação - Bateu na trave!");
-} else {
-    console.log("Reprovado - Prepare-se para ver os mesmos professores ano que vem.");
+    resDiv.innerHTML = `<span class="${color}">${msg}</span>`;
 }
 
+// --- ATIVIDADE 3: Dias da Semana (Switch Case) ---
+function checkDia() {
+    const dia = Number(document.getElementById('dia-input').value);
+    const resDiv = document.getElementById('res-dia');
+    let nomeDia = "";
 
-// ---------------------------------------------------------
-// ATIVIDADE 3: Switch Case (Dias da Semana)
-// ---------------------------------------------------------
-console.log("\n=== ATIVIDADE 3: DIAS DA SEMANA (SWITCH) ===");
+    switch (dia) {
+        case 1: nomeDia = "Domingo"; break;
+        case 2: nomeDia = "Segunda-feira"; break;
+        case 3: nomeDia = "Terça-feira"; break;
+        case 4: nomeDia = "Quarta-feira"; break;
+        case 5: nomeDia = "Quinta-feira"; break;
+        case 6: nomeDia = "Sexta-feira"; break;
+        case 7: nomeDia = "Sábado"; break;
+        default: nomeDia = "Opção inválida (1-7)";
+    }
 
-let dia = 1;
-
-switch (dia) {
-    case 1:
-        console.log("Domingo");
-        break;
-    case 2:
-        console.log("Segunda-feira");
-        break;
-    case 3:
-        console.log("Terça-feira");
-        break;
-    case 4:
-        console.log("Quarta-feira");
-        break;
-    case 5:
-        console.log("Quinta-feira");
-        break;
-    case 6:
-        console.log("Sexta-feira");
-        break;
-    case 7:
-        console.log("Sábado");
-        break;
-    default:
-        console.log("Opção inválida. Digite um número de 1 a 7.");
+    const isWeekend = (dia === 1 || dia === 7);
+    const color = isWeekend ? "text-accent" : "text-text-primary";
+    
+    resDiv.innerHTML = `<span class="${color} font-bold">${nomeDia}</span>`;
 }
-
-
-// ---------------------------------------------------------
-// ATIVIDADE 4: Switch Case (Cores do Semáforo)
-// ---------------------------------------------------------
-console.log("\n=== ATIVIDADE 4: CORES DO SEMÁFORO (SWITCH) ===");
-
-// A variável representa o estado ATUAL do semáforo (apenas um)
-// Tente mudar para "Vermelho" ou "Amarelo" e veja o resultado mudar
-let semaforo = "Verde"; 
-
-switch (semaforo) {
-    case "Vermelho": 
-        console.log("Pare! Espere o sinal abrir.");
-        break;
-    case "Amarelo":
-        console.log("Atenção! Se for passar, tenha cuidado.");
-        break;
-    case "Verde":
-        console.log("Prossiga! Avance.");
-        break;
-    default:
-        console.log("Tá vendo outra cor? Daltônico?");
-}
-
-
-// ---------------------------------------------------------
-// ATIVIDADE 4: Switch Case (Cores do Semáforo)
-// ---------------------------------------------------------

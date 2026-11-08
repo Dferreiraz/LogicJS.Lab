@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Condicionais | LogicJS.Lab</title>
+    <link rel="shortcut icon" href="./assets/img/favicon.svg" type="image/x-icon">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'bg-primary': '#0f172a',
+                        'bg-secondary': '#1e293b',
+                        'text-primary': '#f8fafc',
+                        'accent': '#F7DF1E',
+                        'border-color': '#334155',
+                        'code-bg': '#111827',
+                        'keyword': '#c678dd',
+                        'string': '#98c379',
+                    }
+                }
+            }
+        }
+    </script>
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+<body class="bg-bg-primary text-text-primary min-h-screen flex items-center justify-center p-6 relative font-mono">
+
+    <!-- Botão Voltar -->
+    <a href="../index.html" class="fixed top-6 left-6 inline-flex items-center gap-2 bg-bg-secondary border border-border-color px-4 py-2 rounded-lg font-semibold text-sm hover:bg-accent hover:text-bg-primary transition-colors z-50">
+        <i class="ph ph-arrow-left"></i> Voltar ao Menu
+    </a>
+
+    <div class="w-full max-w-5xl grid grid-cols-1 lg:grid-cols-3 gap-6">
+        
+        <!-- Painel 1: Semáforo (If/Else) -->
+        <div class="bg-bg-secondary border border-border-color rounded-xl p-6">
+            <h2 class="text-lg mb-4 text-accent flex items-center gap-2"><i class="ph ph-traffic-signal"></i> Sinal de Trânsito</h2>
+            <select id="sinal-input" class="w-full bg-bg-primary border border-border-color rounded p-2 mb-4 text-white">
+                <option value="verde">Verde</option>
+                <option value="amarelo">Amarelo</option>
+                <option value="vermelho">Vermelho</option>
+            </select>
+            <button onclick="checkSinal()" class="w-full bg-accent text-bg-primary font-bold py-2 rounded hover:bg-accent-hover transition">Verificar</button>
+            <div id="res-sinal" class="mt-4 p-3 bg-black/30 rounded text-sm min-h-[60px]"></div>
+        </div>
+
+        <!-- Painel 2: Notas (If/Else If) -->
+        <div class="bg-bg-secondary border border-border-color rounded-xl p-6">
+            <h2 class="text-lg mb-4 text-accent flex items-center gap-2"><i class="ph ph-student"></i> Resultado Escolar</h2>
+            <input type="number" id="nota-input" placeholder="Digite a nota (0-10)" class="w-full bg-bg-primary border border-border-color rounded p-2 mb-4 text-white">
+            <button onclick="checkNota()" class="w-full bg-accent text-bg-primary font-bold py-2 rounded hover:bg-accent-hover transition">Calcular</button>
+            <div id="res-nota" class="mt-4 p-3 bg-black/30 rounded text-sm min-h-[60px]"></div>
+        </div>
+
+        <!-- Painel 3: Dias (Switch) -->
+        <div class="bg-bg-secondary border border-border-color rounded-xl p-6">
+            <h2 class="text-lg mb-4 text-accent flex items-center gap-2"><i class="ph ph-calendar"></i> Dia da Semana</h2>
+            <input type="number" id="dia-input" placeholder="Número (1-7)" class="w-full bg-bg-primary border border-border-color rounded p-2 mb-4 text-white">
+            <button onclick="checkDia()" class="w-full bg-accent text-bg-primary font-bold py-2 rounded hover:bg-accent-hover transition">Identificar</button>
+            <div id="res-dia" class="mt-4 p-3 bg-black/30 rounded text-sm min-h-[60px]"></div>
+        </div>
+
+    </div>
+
+    <script src="./script.js"></script>
+</body>
+</html>

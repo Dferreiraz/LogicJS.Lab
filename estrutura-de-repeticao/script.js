@@ -12,50 +12,6 @@
 // 3. Incremento/Decremento (ex: i++): Atualiza o valor da variável de controle ao final de cada repetição.
 // =================================================================================================================
 
-// ------------------------------------------
-// Atividade 1 - Contagem de 0 a 10
-// ------------------------------------------
-for (let i = 0; i <= 10; i++) {
-    // console.log(i)
-}
-
-// ------------------------------------------
-// Atividade 2 - Contagem de 1 até 20
-// ------------------------------------------
-for (let i = 1; i <= 20; i++) {
-    // console.log(i)
-}
-
-// ------------------------------------------
-// Atividade 3 - Tabuada do 5
-// ------------------------------------------
-for (let i = 1; i <= 10; i++) {
-    // console.log(`5 x ${i} = ${5 * i}`)
-}
-
-// ------------------------------------------
-// Atividade 4 - Contagem regressiva de 10 a 1
-// ------------------------------------------
-for (let i = 10; i >= 1; i--) {
-    // console.log(i)
-}
-
-// ------------------------------------------
-// Atividade 5 - Mostrar os números pares de 0 a 20
-// ------------------------------------------
-for (let i = 0; i <= 20; i++) {
-    if (i % 2 === 0) {
-        // console.log(i)
-    }
-}
-
-// ------------------------------------------
-// Atividade 6 - Contar de 0 até 50, de 5 em 5
-// ------------------------------------------
-for (let i = 0; i <= 50; i += 5) {
-    // console.log(i)
-}
-
 // =================================================================================================================
 // WHILE
 // EXPLICAÇÃO: O loop 'while' (enquanto) é ideal quando NÃO sabemos exatamente 
@@ -70,29 +26,89 @@ for (let i = 0; i <= 50; i += 5) {
 // }
 // =================================================================================================================
 
-// let i = 1
-// while (i <= 5) { 
-//     console.log(i)
-//     i++
-// }
+const output = document.getElementById('console-output');
 
-// =========================================================
+function log(msg) {
+    const p = document.createElement('p');
+    p.textContent = `> ${msg}`;
+    output.appendChild(p);
+    output.scrollTop = output.scrollHeight;
+}
 
-// let i = 10
+function clearConsole() {
+    output.innerHTML = '<p class="text-gray-500">// Console limpo.</p>';
+}
 
-// while(i >= 1){
-//     console.log(i)
-//     i--
-// }
+// 1. Contagem Simples (For)
+function runCounting() {
+    clearConsole();
+    log("--- Iniciando Contagem (for) ---");
+    let i = 0;
+    
+    function step() {
+        if (i <= 10) {
+            log(i);
+            i++;
+            setTimeout(step, 300); // Espera 300ms para o próximo
+        } else {
+            log("Fim da contagem!");
+        }
+    }
+    step();
+}
 
-// ==========================================================
+// 2. Tabuada do 5 (For)
+function runTabuada() {
+    clearConsole();
+    log("--- Tabuada do 5 ---");
+    let i = 1;
+    
+    function step() {
+        if (i <= 10) {
+            log(`5 x ${i} = ${5 * i}`);
+            i++;
+            setTimeout(step, 400);
+        } else {
+            log("Tabuada finalizada!");
+        }
+    }
+    step();
+}
 
-// let i = 50
+// 3. Números Pares (For com Condicional)
+function runEvenNumbers() {
+    clearConsole();
+    log("--- Números Pares (0 a 20) ---");
+    let i = 0;
+    
+    function step() {
+        if (i <= 20) {
+            if (i % 2 === 0) {
+                log(`${i} é par`);
+            }
+            i++;
+            setTimeout(step, 200);
+        } else {
+            log("Busca por pares finalizada.");
+        }
+    }
+    step();
+}
 
-//  while(i >= 0){
-//      console.log(i)
-//      i--
-// }
-
-//  ========================================================
-
+// 4. Contagem Regressiva (While)
+function runWhileCountdown() {
+    clearConsole();
+    log("--- Contagem Regressiva (while) ---");
+    let i = 10;
+    
+    function step() {
+        if (i >= 1) {
+            log(i);
+            i--;
+            setTimeout(step, 500); // Mais lento para dar suspense
+        } else {
+            log("🚀 FIM!");
+        }
+    }
+    step();
+}
