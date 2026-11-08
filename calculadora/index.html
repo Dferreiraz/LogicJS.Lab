@@ -14,39 +14,39 @@
     <script src="../shared/tailwind-config.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.2/src/regular/style.css">
 </head>
-<body class="bg-bg-primary text-text-primary min-h-screen flex items-center justify-center p-6 relative">
+<body class="bg-bg-primary text-text-primary min-h-screen flex items-center justify-center px-4 pb-6 pt-24 sm:px-6 sm:pb-8 sm:pt-6 relative">
 
     <!-- Botão Voltar -->
-    <a href="../index.html" class="fixed top-6 left-6 inline-flex items-center gap-2 bg-bg-secondary border border-border-color px-4 py-2 rounded-lg font-semibold text-sm hover:bg-accent hover:text-bg-primary transition-colors z-50">
+    <a href="../index.html" class="fixed top-4 left-4 sm:top-6 sm:left-6 inline-flex items-center gap-2 bg-bg-secondary border border-border-color px-4 py-3 rounded-lg font-semibold text-sm hover:bg-accent hover:text-bg-primary transition-colors z-50">
         <i class="ph ph-arrow-left"></i> Voltar ao Menu
     </a>
 
     <div class="bg-bg-secondary border border-border-color p-6 rounded-2xl shadow-xl w-full max-w-xs">
-        <div id="display" class="bg-bg-primary text-right text-3xl p-4 rounded-lg mb-4 font-mono overflow-hidden truncate h-16 flex items-center justify-end">0</div>
+        <div id="display" class="bg-bg-primary text-right text-2xl sm:text-3xl p-4 rounded-lg mb-4 font-mono overflow-hidden truncate h-16 flex items-center justify-end">0</div>
         
         <div class="grid grid-cols-4 gap-3">
-            <button type="button" id="btn-clear" class="col-span-2 bg-red-500/20 text-red-400 hover:bg-red-500/30 p-3 rounded-lg font-bold transition">C</button>
-            <button type="button" id="btn-delete" aria-label="Apagar último dígito" class="bg-border-color hover:bg-slate-600 p-3 rounded-lg font-bold transition"><i class="ph ph-backspace"></i></button>
-            <button type="button" data-operator="/" class="bg-accent/20 text-accent hover:bg-accent/30 p-3 rounded-lg font-bold transition">÷</button>
+            <button type="button" id="btn-clear" class="col-span-2 bg-red-500/20 text-red-400 hover:bg-red-500/30 p-3 rounded-lg font-bold transition min-h-[44px]">C</button>
+            <button type="button" id="btn-delete" aria-label="Apagar último dígito" class="bg-border-color hover:bg-slate-600 p-3 rounded-lg font-bold transition min-h-[44px]"><i class="ph ph-backspace"></i></button>
+            <button type="button" data-operator="/" class="bg-accent/20 text-accent hover:bg-accent/30 p-3 rounded-lg font-bold transition min-h-[44px]">÷</button>
             
-            <button type="button" data-number="7" class="bg-bg-primary hover:bg-slate-700 p-3 rounded-lg font-bold transition">7</button>
-            <button type="button" data-number="8" class="bg-bg-primary hover:bg-slate-700 p-3 rounded-lg font-bold transition">8</button>
-            <button type="button" data-number="9" class="bg-bg-primary hover:bg-slate-700 p-3 rounded-lg font-bold transition">9</button>
-            <button type="button" data-operator="*" class="bg-accent/20 text-accent hover:bg-accent/30 p-3 rounded-lg font-bold transition">×</button>
+            <button type="button" data-number="7" class="bg-bg-primary hover:bg-slate-700 p-3 rounded-lg font-bold transition min-h-[44px]">7</button>
+            <button type="button" data-number="8" class="bg-bg-primary hover:bg-slate-700 p-3 rounded-lg font-bold transition min-h-[44px]">8</button>
+            <button type="button" data-number="9" class="bg-bg-primary hover:bg-slate-700 p-3 rounded-lg font-bold transition min-h-[44px]">9</button>
+            <button type="button" data-operator="*" class="bg-accent/20 text-accent hover:bg-accent/30 p-3 rounded-lg font-bold transition min-h-[44px]">×</button>
             
-            <button type="button" data-number="4" class="bg-bg-primary hover:bg-slate-700 p-3 rounded-lg font-bold transition">4</button>
-            <button type="button" data-number="5" class="bg-bg-primary hover:bg-slate-700 p-3 rounded-lg font-bold transition">5</button>
-            <button type="button" data-number="6" class="bg-bg-primary hover:bg-slate-700 p-3 rounded-lg font-bold transition">6</button>
-            <button type="button" data-operator="-" class="bg-accent/20 text-accent hover:bg-accent/30 p-3 rounded-lg font-bold transition">−</button>
+            <button type="button" data-number="4" class="bg-bg-primary hover:bg-slate-700 p-3 rounded-lg font-bold transition min-h-[44px]">4</button>
+            <button type="button" data-number="5" class="bg-bg-primary hover:bg-slate-700 p-3 rounded-lg font-bold transition min-h-[44px]">5</button>
+            <button type="button" data-number="6" class="bg-bg-primary hover:bg-slate-700 p-3 rounded-lg font-bold transition min-h-[44px]">6</button>
+            <button type="button" data-operator="-" class="bg-accent/20 text-accent hover:bg-accent/30 p-3 rounded-lg font-bold transition min-h-[44px]">−</button>
             
-            <button type="button" data-number="1" class="bg-bg-primary hover:bg-slate-700 p-3 rounded-lg font-bold transition">1</button>
-            <button type="button" data-number="2" class="bg-bg-primary hover:bg-slate-700 p-3 rounded-lg font-bold transition">2</button>
-            <button type="button" data-number="3" class="bg-bg-primary hover:bg-slate-700 p-3 rounded-lg font-bold transition">3</button>
-            <button type="button" data-operator="+" class="bg-accent/20 text-accent hover:bg-accent/30 p-3 rounded-lg font-bold transition">+</button>
+            <button type="button" data-number="1" class="bg-bg-primary hover:bg-slate-700 p-3 rounded-lg font-bold transition min-h-[44px]">1</button>
+            <button type="button" data-number="2" class="bg-bg-primary hover:bg-slate-700 p-3 rounded-lg font-bold transition min-h-[44px]">2</button>
+            <button type="button" data-number="3" class="bg-bg-primary hover:bg-slate-700 p-3 rounded-lg font-bold transition min-h-[44px]">3</button>
+            <button type="button" data-operator="+" class="bg-accent/20 text-accent hover:bg-accent/30 p-3 rounded-lg font-bold transition min-h-[44px]">+</button>
             
-            <button type="button" data-number="0" class="col-span-2 bg-bg-primary hover:bg-slate-700 p-3 rounded-lg font-bold transition">0</button>
-            <button type="button" data-number="." class="bg-bg-primary hover:bg-slate-700 p-3 rounded-lg font-bold transition">.</button>
-            <button type="button" id="btn-equals" class="bg-accent text-bg-primary hover:bg-accent-hover p-3 rounded-lg font-bold transition">=</button>
+            <button type="button" data-number="0" class="col-span-2 bg-bg-primary hover:bg-slate-700 p-3 rounded-lg font-bold transition min-h-[44px]">0</button>
+            <button type="button" data-number="." class="bg-bg-primary hover:bg-slate-700 p-3 rounded-lg font-bold transition min-h-[44px]">.</button>
+            <button type="button" id="btn-equals" class="bg-accent text-bg-primary hover:bg-accent-hover p-3 rounded-lg font-bold transition min-h-[44px]">=</button>
         </div>
     </div>
 
